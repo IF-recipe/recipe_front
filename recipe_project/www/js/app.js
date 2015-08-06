@@ -5,7 +5,12 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('recipe', ['ionic', 'recipe.controllers', 'recipe.services'])
+angular.module('recipe', [
+    'ionic',
+    'recipe.controllers',
+    'recipe.services',
+    'recipe.directive',
+    'ng-mfb'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -29,6 +34,42 @@ angular.module('recipe', ['ionic', 'recipe.controllers', 'recipe.services'])
                 url: "/",
                 templateUrl: "template/recipeallTemplate.html"
             })
+            .state('showrecipe', {
+                url: "/showrecipe",
+                templateUrl: "template/showrecipeTemplate.html"
+            })
+            .state('myprofile', {
+                url: "/myprofile",
+                templateUrl: "template/myprofileTemplate.html"
+            })
+            .state('deliverybook', {
+                url: "/deliverybook",
+                templateUrl: "template/deliverybookTemplate.html"
+            })
+            .state('orderlist', {
+                url: "/orderlist",
+                templateUrl: "template/orderlistTemplate.html"
+            })
+            .state('orderdetail', {
+                url: "/orderdetail",
+                templateUrl: "template/orderdetailTemplate.html"
+            })
+            .state('searchrecipe', {
+                url: "/searchrecipe",
+                templateUrl: "template/searchrecipeTemplate.html"
+            })
+            .state('searchresult', {
+                url: "/searchresult",
+                templateUrl: "template/searchresultTemplate.html"
+            })
+            .state('addrecipe', {
+                url: "/addrecipe",
+                templateUrl: "template/addrecipeTemplate.html"
+            })
+            .state('previewrecipe', {
+                url: "/previewrecipe",
+                templateUrl: "template/previewrecipeTemplate.html"
+            });
 
         $urlRouterProvider.otherwise("/");
 });
@@ -36,3 +77,5 @@ angular.module('recipe', ['ionic', 'recipe.controllers', 'recipe.services'])
 angular.module('recipe.controllers', []);
 
 angular.module('recipe.services', []);
+
+angular.module('recipe.directive', []);
