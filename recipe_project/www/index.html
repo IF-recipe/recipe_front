@@ -45,6 +45,9 @@
                     <ion-item href="#">
                         <h3>쉐프의 레시피</h3>
                     </ion-item>
+                    <ion-item href="#/addrecipe">
+                        <h3>글쓰기</h3>
+                    </ion-item>
                 </div>
             </ion-list>
             <div style="position: absolute; bottom: 0px; width: 100%">
@@ -70,10 +73,11 @@
 
 </ion-side-menus>
 
+
 <nav mfb-menu position="br" effect="slidein-spring"
      active-icon="ion-minus-round" resting-icon="ion-plus-round"
-     toggling-method="click">
-    <button mfb-button icon="ion-edit" label="레시피 만들기"></button>
+     toggling-method="click" >
+    <button mfb-button icon="ion-edit" label="레시피 만들기" onclick="window.location.href='/#/addrecipe';"></button>
     <button mfb-button icon="ion-search" label="레시피 검색"></button>
 </nav>
 
@@ -88,6 +92,7 @@
 
 <!--------------------------------controller-------------------------------->
 <script src="js/controller/sidemenuController.js"></script>
+<script src="js/controller/addrecipeController.js"></script>
 
 <!--------------------------------service----------------------------------->
 

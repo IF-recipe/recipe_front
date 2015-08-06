@@ -64,7 +64,8 @@ angular.module('recipe', [
             })
             .state('addrecipe', {
                 url: "/addrecipe",
-                templateUrl: "template/addrecipeTemplate.html"
+                templateUrl: "template/addrecipeTemplate.html",
+                controller : 'addrecipeCtrl'
             })
             .state('previewrecipe', {
                 url: "/previewrecipe",

@@ -5,12 +5,10 @@ angular.module('recipe.controllers')
         '$location',
         function($scope, $ionicSideMenuDelegate, $location) {
             $scope.toggleLeft = function() {
-
                 $ionicSideMenuDelegate.toggleLeft();
             };
 
             $scope.titleClick = function(){
                 $location.path('/recipeall');
             }
-
     }]);
