@@ -4,7 +4,8 @@ angular.module('recipe.controllers')
         '$ionicSideMenuDelegate',
         '$location',
         '$signService',
-        function($scope, $ionicSideMenuDelegate, $location,$signService) {
+        '$ionicModal',
+        function($scope, $ionicSideMenuDelegate, $location,$signService,$ionicModal) {
 
 
             /**
@@ -13,6 +14,16 @@ angular.module('recipe.controllers')
              * sign_title : 로그인 버튼의 텍스트를 바꿔주기 위함
              * sign_status : 현재 로그인이 되어있는 상태인지 아닌지를 판별하기 위한 상태값
              */
+
+            $ionicModal.fromTemplateUrl('template/signmodalTemplate.html', function($ionicModal) {
+                $scope.signmodal = $ionicModal;
+            }, {
+
+                scope: $scope,
+
+                animation: 'slide-in-up'
+            });
+
             $scope.sign = {
                 sign_title : '',
                 sign_status : $signService.getsignStatus()
@@ -36,9 +47,9 @@ angular.module('recipe.controllers')
 
                 if($scope.sign.sign_status == false){
                     /**
-                     * show ngDialog for signup / signin
+                     * show modal for signup / signin
                      */
-                    $signService.signmodalOpen();
+                    $scope.signmodal.show();
 
                 }else{
 
@@ -55,6 +66,10 @@ angular.module('recipe.controllers')
                 $scope.sign.sign_status = $signService.getsignStatus();
                 $scope.sign.sign_title = 'signOut';
             });
+
+            $scope.$on('closeModal', function(event,data){
+                $scope.signmodal.hide();
+            })
 
 
         }]);

@@ -25,6 +25,7 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="external_lib/ngCordova/ng-cordova.js"></script>
     <script src="cordova.js"></script>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 </head>
 <body ng-app="recipe">
@@ -105,7 +106,7 @@
 <nav mfb-menu position="br" effect="slidein-spring"
      active-icon="ion-minus-round" resting-icon="ion-plus-round"
      toggling-method="click">
-    <button mfb-button icon="ion-edit" label="레시피 만들기"></button>
+    <button mfb-button icon="ion-edit" label="레시피 만들기" ui-sref="addrecipe" mfb-button-close></button>
     <button mfb-button icon="ion-search" label="레시피 검색"></button>
 </nav>
 
@@ -136,7 +137,7 @@
 
 <script src="external_lib/floatingbtn/mfb-directive.js"></script>
 <script src="external_lib/ngDialog/ngDialog.js"></script>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
 
 </body>
 </html>
