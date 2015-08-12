@@ -1,0 +1,64 @@
+<div>
+    <!-- 기본 제목, 간단 설명, 필요재료 입력 form -->
+    <div class="list">
+        <label class="item item-input item-floating-label">
+            <span class="input-label" style="color:#e47865;">제목 예) 맛나맛나 제육볶음</span>
+            <input type="text" placeholder="제목" ng-model="newRecipe.title">
+        </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label" style="color:#e47865;">간단 설명 예) 고기와 고춧가루면 끝! </span>
+            <input type="text" placeholder="간단 설명" ng-model="newRecipe.description">
+        </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label" style="color:#e47865;">요리 재료 예) 양파 1개, 당근 1개, 식용유, ...</span>
+            <input type="text" placeholder="요리 재료" ng-model="newRecipe.materials">
+        </label>
+        <label class="item item-input item-select">
+            <div class="input-label" style="color:saddlebrown">
+                레시피 카테고리
+            </div>
+            <!--<select ng-init="newRecipe.foodkind = foodkinds[0]"-->
+            <!--ng-model="newRecipe.foodkind"-->
+            <!--ng-options="foodkind.name for foodkind in foodkinds"></select>-->
+            <select ng-init="newRecipe.foodkind = foodkinds[0]"
+                    ng-model="newRecipe.foodkind"
+                    ng-options="foodkind for foodkind in foodkinds"></select>
+        </label>
+    </div>
+
+    <div class="list card" ng-repeat="content in contents">
+
+        <div class="item item-avatar">
+            <h3 class="title">Step.{{$index+1}}</h3>
+            <p>{{newRecipe.title}}</p>
+        </div>
+        <div class="item item-image">
+            <a class="button button-icon icon ion-image" ng-click="getAlbum()"> <span>사진 추가</span> </a>
+
+            <!--<img src="img/ionic.png">-->
+
+        </div>
+        <a class="item item-icon-left assertive" href="#">
+            <textarea placeholder="" style="width:100%" ng-model="content.content"></textarea>
+        </a>
+    </div>
+
+
+<button class="button button-block button-assertive icon ion-ios-plus-outline"
+            ng-click="addContent()" ng-show="hideplusBtn">
+    </button>
+    <!--<div class="list card" ng-repeat="content in contents">-->
+        <!--<div class="item item-body">-->
+            <!--<p>{{content.name}}</p>-->
+            <!--<p>{{content.picture}}</p>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+
+
+
+    <button ng-click="showNewrecipe()"></button>
+
+</div>
+
