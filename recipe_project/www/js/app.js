@@ -34,12 +34,13 @@ angular.module('recipe', [
         $stateProvider
             .state('recipeall', {
                 url: "/",
-                templateUrl: "template/recipeallTemplate.html"
+                templateUrl: "template/recipeallTemplate.html",
+                controller:"recipeallCtrl"
             })
-            .state('showrecipe', {
+            /*.state('showrecipe', {
                 url: "/showrecipe",
                 templateUrl: "template/showrecipeTemplate.html"
-            })
+            })*/
             .state('myprofile', {
                 url: "/myprofile",
                 templateUrl: "template/profileTemplate.html",
