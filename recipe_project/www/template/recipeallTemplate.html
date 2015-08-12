@@ -1,3 +1,7 @@
+<ion-refresher on-refresh="refreshTasks()" refreshing-text="레시피를 가져오고 있어요~~" refreshing-icon="ion-loading-b">
+</ion-refresher>
+
+<!--
 <ion-scroll direction="x" class="wide-as-needed">
     <a href="#" class="button button-clear nav-tab-button {{foodkinds_filter == '' ? 'active' : ''}}" ng-click="tabClick('전체')">전체</a>
     <a href="#" class="button button-clear nav-tab-button {{foodkinds_filter == '한식' ? 'active' : ''}}" ng-click="tabClick('한식')">한식</a>
@@ -9,8 +13,10 @@
     <a href="#" class="button button-clear nav-tab-button {{foodkinds_filter == '브런치' ? 'active' : ''}}" ng-click="tabClick('브런치')">브런치</a>
     <a href="#" class="button button-clear nav-tab-button {{foodkinds_filter == '안주거리' ? 'active' : ''}}" ng-click="tabClick('안주거리')">안주거리</a>
 </ion-scroll>
+-->
 
 <div class="list card" ng-repeat="item in recipes | limitTo : recipes_count | filter : foodkinds_filter">
+
     <div class="item item-avatar">
         <img src="img/ionic.png">
         <h2>{{item.nickname}}</h2>
@@ -28,3 +34,4 @@
 </div>
 
 <ion-infinite-scroll ng-if="canloadMore" spinner="android" on-infinite="loadMore()"></ion-infinite-scroll>
+

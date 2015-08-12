@@ -9,8 +9,9 @@
                 </div>
 
                 <div class="item item-body">
-                    <img class="full-image" ng-src="{{item.photoPath == '' ? '' : 'img/'+item.photoPath}}">
-                    <br>
+                    <div id="image-wrapper">
+                        <img ng-src="{{item.photoPath == '' ? '' : 'img/'+item.photoPath}}">
+                    </div>
                     <h3 ng-bind-html="item.content"></h3>
                 </div>
             </div>
