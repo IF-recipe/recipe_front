@@ -11,7 +11,8 @@ angular.module('recipe', [
     'recipe.services',
     'recipe.directives',
     'ng-mfb',
-    'ngDropdowns'
+    'ngDropdowns',
+    'ngCordova',
 ])
 
 .run(function($ionicPlatform) {
