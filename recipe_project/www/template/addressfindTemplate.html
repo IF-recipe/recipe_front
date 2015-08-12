@@ -1,0 +1,30 @@
+<label class="item item-input">
+    <span class="input-label">배송지 이름</span>
+    <input type="text" ng-model="sending_address.address_title"  >
+</label>
+<div style="text-align:center;float:left; width:100%;padding-top:5px;">
+    <button style="display:inline; float:left;" class="button button-small button-assertive" ng-click="openAddress()">우편번호 찾기</button>
+
+    <input style="display:inline;float:right;" type="text" placeholder="우편번호" ng-model='sending_address.post_code' value='sending_address.post_code' disabled/>
+</div>
+
+
+<label class="item item-input">
+<textarea placeholder="지번주소" ng-model='sending_address.jibun_address'
+          value='sending_address.jibun_address' style="width:100%;"></textarea>
+</label>
+<label class="item item-input" style="padding-top:5px;">
+<textarea type="text" placeholder="도로명주소" ng-model='sending_address.road_address'
+          value='sending_address.road_address' style="width:100%;"></textarea>
+</label>
+
+<label class="item item-input">
+    <span class="input-label">전화번호</span>
+    <input type="text" ng-model="sending_address.phone" >
+</label>
+
+<div style="text-align:center; padding-top:3px;">
+    <button class="button button-small button-assertive" ng-click="confirmClick();" >{{btn_title}}</button>
+    <button class="button button-small button-assertive" ng-click="closeClick();" >닫기</button>
+</div>
+
