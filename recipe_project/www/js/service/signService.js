@@ -8,8 +8,7 @@ angular.module('recipe.services')
     .factory('$signService', [
         '$http',
         '$window',
-        'ngDialog',
-        function ($http, $window, ngDialog) {
+        function ($http, $window) {
 
             var user_input_signdata = {};
 
@@ -63,22 +62,6 @@ angular.module('recipe.services')
                  * after this request, save localstorage and automatically signin service
                  */
 
-            };
-
-            /**
-             * sign modal part
-             */
-
-            user_sign_info.signmodalOpen = function () {
-                dialog = ngDialog.open({
-                    template: 'template/signmodalTEmplate.html',
-                    controller: 'signmodalCtrl',
-                    className: 'ngdialog-theme-default '
-                });
-            };
-
-            user_sign_info.signmodalClose = function () {
-                dialog.close();
             };
 
             return user_sign_info;

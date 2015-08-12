@@ -1,87 +1,112 @@
-<!-- 기본 signin 폼 -->
-<div ng-show="create_account">
 
-    <div style="margin:20px;">
-        <h3>로그인</h3>
 
-        <form name="signinForm">
+<div ng-controller = "signmodalCtrl" class="modal signmodal" >
+    <div ng-show="create_account" style="padding-top:50px;">
 
-            <div class="card">
-                <div class="item">
-                    <input type="email" name="signinid" placeholder="아이디" ng-model="signin_info.id" required/>
-                    <h4 class="help-error" data-ng-show="signinForm.signinid.$error.required" style="color:red;">이메일 입력해주세요.</h4>
-
-                </div>
-                <div class="item">
-                    <input type="password" name="signinpasswd" placeholder="비밀번호" ng-model="signin_info.passwd" required/>
-                    <h4 class="help-block" data-ng-show="signinForm.signinpasswd.$error.required" style="color:red;">비밀번호를 입력해주세요.</h4>
-                </div>
-                <div class="item item-toggle" style="float:right;">
-                    <ion-toggle ng-model="auto_signin" ng-change="autosigninChange();" toggle-class="toggle-assertive" >
-                        자동 로그인
-                    </ion-toggle>
-                </div>
-
+        <div style="margin:20px;">
+            <div class="row">
+                <div class="col"><h3>로그인</h3></div>
+                <div class="col" ><i class="icon ion-close-circled" style="float:right;font-size:20px;" ng-click="closeModal();"> </i></div>
             </div>
 
-            <button ng-click="signin()" class="button button-block button-assertive" ng-disabled="signinForm.$invalid">
-                로그인
+            <form name="signinForm">
+
+                <div class="card">
+                    <div class="item">
+                        <input type="email" name="signinid" placeholder="아이디" ng-model="signin_info.id" required/>
+                        <h4 class="help-error" data-ng-show="signinForm.signinid.$error.required" style="color:red;">이메일
+                            입력해주세요.</h4>
+
+                    </div>
+                    <div class="item">
+                        <input type="password" name="signinpasswd" placeholder="비밀번호" ng-model="signin_info.passwd"
+                               required/>
+                        <h4 class="help-block" data-ng-show="signinForm.signinpasswd.$error.required"
+                            style="color:red;">
+                            비밀번호를 입력해주세요.</h4>
+                    </div>
+                    <div class="row">
+
+                        <div class="col">
+                            <h4 style="float:left;padding-top:10px;">자동로그인</h4>
+                        </div>
+                        <div class="col">
+                            <ion-toggle style="float:right;height:45px;" ng-model="auto_signin"
+                                        ng-change="autosigninChange();" toggle-class="toggle-assertive">
+                            </ion-toggle>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <button ng-click="signin()" class="button button-block button-assertive"
+                        ng-disabled="signinForm.$invalid">
+                    로그인
+                </button>
+
+            </form>
+
+            <button ng-click="create()" class="button button-block button-assertive">
+                회원가입하기
             </button>
 
-        </form>
-
-        <button ng-click="create()" class="button button-block button-assertive">
-            회원가입하기
-        </button>
+        </div>
 
     </div>
 
-</div>
-
-<!-- signup 폼 -->
-<div ng-show="!create_account">
+    <div ng-show="!create_account">
 
 
-    <div style="margin:20px;">
-        <h3>회원가입</h3>
+        <div style="margin:20px;">
+            <div class="row">
+                <div class="col"><h3>회원가입</h3></div>
+                <div class="col" ><i class="icon ion-close-circled" style="float:right;font-size:20px;" ng-click="closeModal();"> </i></div>
+            </div>
 
-        <form name="signupForm">
+            <form name="signupForm">
 
 
-            <div class="card">
-                <div class="item">
-                    <input type="email" placeholder="아이디(이메일)" ng-model="signup_info.id" required/>
-                    <!--
-                        <h4 style="color:red;">이미 등록된 이메일 입니다.</h4>
-                        후에 validation check 를 통해서 여기다가 값을 너어줘야함
-                    -->
-                </div>
-                <div class="item">
-                    <input type="text" placeholder="닉네임" ng-model="signup_info.nickname" ng-minlength="4"
-                           ng-maxlength="20" required />
-                </div>
-                <div class="item">
-                    <input type="password" name="passwd" id="passwd"  placeholder="비밀번호" ng-model="signup_info.passwd" required />
-                </div>
-                <div class="item">
-                    <input type="password" name="passwd_check" id="passwd_check" placeholder="비밀번호 확인" ng-model="signup_info.passwd_check" repeat-password="passwd"  required/>
-                    <div class="msg-block" ng-show="signupForm.$error">
-                        <h4 class="msg-error" ng-show="signupForm.passwd_check.$error.repeat" style="color:red;">
+                <div class="card">
+                    <div class="item">
+                        <input type="email" placeholder="아이디(이메일)" ng-model="signup_info.id" required/>
+                        <!--
+                            <h4 style="color:red;">이미 등록된 이메일 입니다.</h4>
+                            후에 validation check 를 통해서 여기다가 값을 너어줘야함-->
+
+                    </div>
+                    <div class="item">
+                        <input type="text" placeholder="닉네임" ng-model="signup_info.nickname" ng-minlength="4"
+                               ng-maxlength="20" required/>
+                    </div>
+                    <div class="item">
+                        <input type="password" name="passwd" id="passwd" placeholder="비밀번호"
+                               ng-model="signup_info.passwd"
+                               required/>
+                    </div>
+                    <div class="item">
+                        <input type="password" name="passwd_check" id="passwd_check" placeholder="비밀번호 확인"
+                               ng-model="signup_info.passwd_check" repeat-password="passwd" required/>
+
+                        <div class="msg-block" ng-show="signupForm.$error">
+                            <h4 class="msg-error" ng-show="signupForm.passwd_check.$error.repeat" style="color:red;">
                                 비밀번호가 일치하지 않습니다
-                        </h4>
+                            </h4>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <button ng-click="signup()" class="button button-block button-assertive" ng-disabled="signupForm.$invalid">
-                회원가입완료
-            </button>
+                <button ng-click="signup()" class="button button-block button-assertive"
+                        ng-disabled="signupForm.$invalid">
+                    회원가입완료
+                </button>
 
-        </form>
+            </form>
 
+        </div>
     </div>
-
-
 </div>
+
 
 

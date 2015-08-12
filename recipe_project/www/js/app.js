@@ -84,9 +84,7 @@ angular.module('recipe', [
 
 });
 
-angular.module('recipe.controllers', [
-    'ngDialog'
-]);
+angular.module('recipe.controllers', []);
 
 angular.module('recipe.services', []);
 

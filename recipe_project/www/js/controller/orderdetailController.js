@@ -37,8 +37,9 @@ angular.module('recipe.controllers')
                 if($scope.see_product == false){
 
                     $scope.see_product = true;
-                    var addHeight = angular.element('#scrollToproduct');
-                    $ionicScrollDelegate.scrollTo(0, 2, true);
+                    /*var addHeight = angular.element('#scrollToproduct');
+                    $ionicScrollDelegate.scrollTo(0, addHeight.height(), true);*/
+                    $ionicScrollDelegate.scrollBottom(true);
 
                 }else{
                     $scope.see_product = false;

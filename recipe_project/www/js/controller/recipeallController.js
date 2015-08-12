@@ -26,6 +26,22 @@ angular.module('recipe.controllers')
                 }
             }
 
+
+            /**
+             * ionic refreash 당겨서 새로고침!!
+             */
+            $scope.refreshTasks = function() {
+                $http.get('json/recipe.json').success(function(items) {
+                    $scope.recipes = items;
+                    $scope.recipes_count = 15;
+                });
+                $timeout(function() {
+                    $scope.$broadcast('scroll.refreshComplete');
+                    $scope.$broadcast('scroll.refreshComplete');
+                }, 1250);
+            };
+
+
             /**
              * 레시피 데이터를 받아오는 부분. 아직 서버와의 통신이 없기 때문에 로컬의 recipe.json파일을 읽어옴.
              */
