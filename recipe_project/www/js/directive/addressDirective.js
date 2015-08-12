@@ -57,7 +57,6 @@ angular.module('recipe.directives', [])
                     }
                 };
 
-
                 $scope.openAddress = function(){
 
                     new daum.Postcode({
