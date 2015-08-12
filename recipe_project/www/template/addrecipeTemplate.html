@@ -13,9 +13,13 @@
             <span class="input-label" style="color:#e47865;">요리 재료 예) 양파 1개, 당근 1개, 식용유, ...</span>
             <input type="text" placeholder="요리 재료" ng-model="newRecipe.materials">
         </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label" style="color:#e47865;">해시태그 예)제육볶음, 제육, 볶음, 맛있는, 고기</span>
+            <input type="text" placeholder="해시태그" ng-model="newRecipe.hashTagName">
+        </label>
         <label class="item item-input item-select">
             <div class="input-label" style="color:saddlebrown">
-                레시피 카테고리
+                음식 분류
             </div>
             <!--<select ng-init="newRecipe.foodkind = foodkinds[0]"-->
             <!--ng-model="newRecipe.foodkind"-->
@@ -26,39 +30,44 @@
         </label>
     </div>
 
-    <div class="list card" ng-repeat="content in contents">
+    <ion-list>
+        <ion-item ng-repeat="step in newRecipe.steps">
+            <div class="item item-avatar item-icon-left assertive" href="#">
+                <i class="icon ion-music-note"></i>
+                <h2 class="assertive">
+                    Step.{{step.step}}
+                </h2>
+                <p style="text-decoration:none">{{newRecipe.title}}</p>
+            </div>
+            <div class="item item-body">
 
-        <div class="item item-avatar">
-            <h3 class="title">Step.{{$index+1}}</h3>
-            <p>{{newRecipe.title}}</p>
-        </div>
-        <div class="item item-image">
-            <a class="button button-icon icon ion-image" ng-click="getAlbum()"> <span>사진 추가</span> </a>
+                <a ng-show="step.photoPath === undefined" class="button button-icon icon-right ion-camera"
+                   ng-click="getPhoto(step,0)"> 카메라</a>
 
-            <!--<img src="img/ionic.png">-->
+                <a ng-show="step.photoPath === undefined" class="button button-icon icon-right ion-image"
+                   ng-click="getPhoto(step,1)"> 앨범</a>
 
-        </div>
-        <a class="item item-icon-left assertive" href="#">
-            <textarea placeholder="" style="width:100%" ng-model="content.content"></textarea>
-        </a>
-    </div>
+                <img ng-show="step.photoPath !== undefined" ng-src="{{step.photoPath}}" style="width:100%;" ng-click="getPhoto(step)">
 
+                <label class="item-input" style="border:1px;">
+                    <textarea placeholder="내용을 입력해주세요." rows="4" cols="14" ng-model="step.content" style="border:2px">
+                </textarea>
+                </label>
+                {{newRecipe.steps[$index]}}
 
-<button class="button button-block button-assertive icon ion-ios-plus-outline"
-            ng-click="addContent()" ng-show="hideplusBtn">
+            </div>
+        </ion-item>
+    </ion-list>
+    <button class="button button-block button-assertive icon ion-ios-plus-outline"
+            ng-click="addinputForm()">
     </button>
-    <!--<div class="list card" ng-repeat="content in contents">-->
-        <!--<div class="item item-body">-->
-            <!--<p>{{content.name}}</p>-->
-            <!--<p>{{content.picture}}</p>-->
-        <!--</div>-->
-    <!--</div>-->
+    <button class="button button-block button-positive" ng-click="previewRecipe()">
+        미리 보기
+    </button>
+    <button class="button button-block" ng-click="submitRecipe()">
+        작성 완료
+    </button>
 
-
-
-
-
-    <button ng-click="showNewrecipe()"></button>
-
+    <!--<button ng-click="shownewRecipe()"></button>-->
 </div>
 

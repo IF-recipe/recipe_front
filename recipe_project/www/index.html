@@ -5,9 +5,29 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
+
+
+
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+
+    <!------ external css --->
+
     <link href="external_lib/floatingbtn/mfb.css" rel="stylesheet"/>
+    <link href="external_lib/ngDialog/ngDialog.css" rel="stylesheet"/>
+    <link href="external_lib/ngDialog/ngDialog-theme-default.css" rel="stylesheet"/>
+
+    <!------ custom css ----->
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
 
 </head>
 <body ng-app="recipe">
@@ -52,10 +72,10 @@
                         <ion-item href="#" class="item item-icon-right">
                             <h3>나의 레시피 북</h3>
                         </ion-item>
-                        <ion-item href="#">
+                        <ion-item menu-close href="#/myprofile">
                             <h3>나의 프로필</h3>
                         </ion-item>
-                        <ion-item href="#">
+                        <ion-item menu-close href="#/orderlist">
                             <h3>나의 주문내역</h3>
                         </ion-item>
                     </div>
@@ -64,12 +84,11 @@
 
         <ion-footer-bar class="bar-stable">
             <h1 class="title">낭낭맘</h1>
-            <button class="button pull-right">로그아웃</button>
+            <button class="button pull-right" ng-click= "loginbtnClick()" >{{sign.sign_title}}</button>
         </ion-footer-bar>
     </ion-side-menu>
 
 </ion-side-menus>
-
 <nav mfb-menu position="br" effect="slidein-spring"
      active-icon="ion-minus-round" resting-icon="ion-plus-round"
      toggling-method="click">
@@ -77,26 +96,31 @@
     <button mfb-button icon="ion-search" label="레시피 검색"></button>
 </nav>
 
-
-<!-- ionic/angularjs js -->
-<script src="lib/ionic/js/ionic.bundle.js"></script>
-
-<!-- cordova script (this will be a 404 during development) -->
-<script src="cordova.js"></script>
-
 <script src="js/app.js"></script>
 
 <!--------------------------------controller-------------------------------->
 <script src="js/controller/sidemenuController.js"></script>
+<script src="js/controller/signmodalController.js"></script>
+<script src="js/controller/profileController.js"></script>
+<script src="js/controller/deliverybookController.js"></script>
+<script src="js/controller/orderlistController.js"></script>
+<script src="js/controller/orderdetailController.js"></script>
 
 <!--------------------------------service----------------------------------->
+<script src="js/service/signService.js"></script>
+<script src="js/service/profileService.js"></script>
 
 
 <!--------------------------------directive--------------------------------->
+<script src="js/directive/addressDirective.js"></script>
+<script src="js/directive/repeatpasswordDirective.js"></script>
 
 
-<!--------------------------------external---------------------------------->
+<!--------------------------------external js---------------------------------->
+
 <script src="external_lib/floatingbtn/mfb-directive.js"></script>
+<script src="external_lib/ngDialog/ngDialog.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 </body>
 </html>

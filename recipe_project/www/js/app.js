@@ -9,8 +9,10 @@ angular.module('recipe', [
     'ionic',
     'recipe.controllers',
     'recipe.services',
-    'recipe.directive',
-    'ng-mfb'])
+    'recipe.directives',
+    'ng-mfb',
+    'ngDropdowns'
+])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -40,19 +42,23 @@ angular.module('recipe', [
             })
             .state('myprofile', {
                 url: "/myprofile",
-                templateUrl: "template/myprofileTemplate.html"
+                templateUrl: "template/profileTemplate.html",
+                controller : 'profileCtrl'
             })
             .state('deliverybook', {
                 url: "/deliverybook",
-                templateUrl: "template/deliverybookTemplate.html"
+                templateUrl: "template/deliverybookTemplate.html",
+                controller : 'deliverybookCtrl'
             })
             .state('orderlist', {
                 url: "/orderlist",
-                templateUrl: "template/orderlistTemplate.html"
+                templateUrl: "template/orderlistTemplate.html",
+                controller : 'orderlistCtrl'
             })
             .state('orderdetail', {
-                url: "/orderdetail",
-                templateUrl: "template/orderdetailTemplate.html"
+                url: "/orderdetail/:orderId",
+                templateUrl: "template/orderdetailTemplate.html",
+                controller : 'orderdetailCtrl'
             })
             .state('searchrecipe', {
                 url: "/searchrecipe",
@@ -64,7 +70,8 @@ angular.module('recipe', [
             })
             .state('addrecipe', {
                 url: "/addrecipe",
-                templateUrl: "template/addrecipeTemplate.html"
+                templateUrl: "template/addrecipeTemplate.html",
+                controller : 'addrecipeCtrl'
             })
             .state('previewrecipe', {
                 url: "/previewrecipe",
@@ -72,10 +79,14 @@ angular.module('recipe', [
             });
 
         $urlRouterProvider.otherwise("/");
+
+
 });
 
-angular.module('recipe.controllers', []);
+angular.module('recipe.controllers', [
+    'ngDialog'
+]);
 
 angular.module('recipe.services', []);
 
-angular.module('recipe.directive', []);
+angular.module('recipe.directives', []);
