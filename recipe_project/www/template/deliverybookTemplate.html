@@ -1,0 +1,70 @@
+<!--
+<div class="card">
+    <div class="item item-text-wrap">
+
+        <h3> 대표 배송지</h3>
+
+        <h2 style="text-align:left">[367-121] 충남아산시 신창면 읍내리 순천향대학교 앙뜨레 쁘레너관 E307</h2>
+        <br>
+        <i class="icon ion-android-call"> : 010-7157-0986</i>
+
+        <div style="margin-left: 80%;display:inline;">
+            <i class="icon ion-wrench" style="font-size:150%;" ng-click="editDelivery();"></i>
+            <i class="icon ion-android-delete" id="edit_delivery" style="font-size:150%;padding-left:20px;" ng-click="deleteDelivery();"></i>
+        </div>
+        <div style="text-align:center; padding-top:3px;" ng-if="edit_status">
+            <address-find ></address-find>
+            <button class="button button-small button-assertive" ng-click="editComplete();" >수정하기</button>
+            <button class="button button-small button-assertive" ng-click="closeEdit();" >닫기</button>
+        </div>
+
+    </div>
+</div>
+-->
+
+<div >
+
+    <div class="card" ng-repeat="delivery in delivery_book">
+        <div class="item item-text-wrap" id="toScroll">
+
+            <h3 ng-if="delivery.representation "> 대표 배송지</h3>
+
+            <h2 style="text-align:left">[ {{delivery.zip_code}} ]</h2>
+
+            <h2 style="text-align:left">지번 - {{delivery.road_address}} </h2>
+
+            <h2 style="text-align:left">도로명 - {{delivery.jibun_address}} </h2>
+            <br>
+            <i class="icon ion-android-call"> : {{delivery.phone}}</i>
+
+            <div style="margin-left: 80%;display:inline;">
+                <i class="icon ion-wrench" style="font-size:150%;" ng-click="editDelivery($index);"></i>
+                <i class="icon ion-android-delete" id="edit_delivery" style="font-size:150%;padding-left:20px;"
+                   ng-click="deleteDelivery();"></i>
+            </div>
+
+            <div style="text-align:center; padding-top:3px;" ng-if="edit_status == $index">
+                <address-find status="edit" delivery-edit="delivery" delivery-index="$index"></address-find>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card" ng-repeat="delivery in delivery_input_forms" >
+
+        <div class="item item-text-wrap toScrolladd">
+
+            <address-find status="add" delivery-index="$index"></address-find>
+
+        </div>
+
+    </div>
+
+    <div style="text-align:center;">
+        <button ng-click="adddeliveryBook();" ng-disabled="addbtn_status" class="button button-large button-assertive"
+                style="border-radius:10%;">
+            <i class="icon ion-plus-round"></i>
+        </button>
+    </div>
+
+</div>

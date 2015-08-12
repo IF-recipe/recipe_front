@@ -1,0 +1,141 @@
+<div class="card">
+    <div class="row item item-text-wrap" style="background:rgba(255, 97, 96, 0.15);">
+        <div class="col col-75">주문일자 : 2015.08.20</div>
+        <div class="col">
+            <h3 style="color:red;">입금 대기중</h3>
+        </div>
+    </div>
+    <div class="row" style="padding-top:10px;">
+        <div class="col">
+            <img style="width: 100%;height: 100%;" src="img/food1.png" />
+        </div>
+        <div class="col item-text-wrap">
+            <a href="#" style=""><h4>감자만두의 짬뽕찌개</h4></a>
+            <div style="padding-top:15px;">
+                <h5>수량 : 2인분</h5>
+                <h5>가격 : 6200원</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="row item item-text-wrap" >
+        <div class="col col-75">구매자 정보</div>
+        <div class="col">
+            <h3 style="color:blue;" ng-click="deliveryChange()">배송지 변경</h3>
+        </div>
+    </div>
+    <div class="row responsive-sm" style="padding-top:15px;">
+        <div class="col">
+            <i class="icon ion-person"> : 유자성</i>
+
+
+        </div>
+        <div class="col">
+            [378-141] 충남아산시 신창면 읍내리 순천향대학교 앙뜨레 쁘레너관 E307
+        </div>
+        <div class="col">
+            <i class="icon ion-android-call"> : 010-7157-0986</i>
+        </div>
+    </div>
+</div>
+
+<div class="card" ng-if="delivery_change_status">
+    <div class="row" style="padding-top:5px;">
+        <div class="col-33" ng-repeat="delivery in delivery_book">
+            <input type="radio" id="$index" ng-model="$parent.delivery" ng-change="radioChecked(delivery)" ng-value="delivery" /><label style="padding-left:5px;">{{delivery.address_title}}</label>
+        </div>
+    </div>
+
+    <div class="card" ng-show="address_show" >
+
+        <div class="row responsive-sm" style="padding-top:15px;"  id="scrollToradio">
+            <div class="col">
+                배송지명 : {{show_delivery.address_title}}
+            </div>
+            <div class="col">
+                [{{show_delivery.zip_code}}] {{show_delivery.jibun_address}}
+            </div>
+            <div class="col">
+                <i class="icon ion-android-call"> : {{show_delivery.phone}}</i>
+            </div>
+            <div class="col" style="text-align:center;">
+                <button class="button button-block button-calm" ng-click="buyerChange()">변경</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="card ">
+    <div class="row item item-text-wrap" >
+        <div class="col col-75" ng-click="showProduct();">
+            <h3>구매물품 상세내역보기</h3>
+        </div>
+    </div>
+    <div ng-show="see_product" style="padding-top:5px;" id="scrollToproduct">
+        <div class="row" style="padding-top:5px;">
+            <div class="col-33">양파</div>
+            <div class="col-33">200g</div>
+            <div class="col-33">300원</div>
+        </div>
+        <div class="row" style="padding-top:5px;">
+            <div class="col-33">파</div>
+            <div class="col-33">100g</div>
+            <div class="col-33">200원</div>
+        </div>
+        <div class="row" style="padding-top:5px;">
+            <div class="col-33">소세지</div>
+            <div class="col-33">300g</div>
+            <div class="col-33">1000원</div>
+        </div>
+        <div class="row" style="padding-top:5px;">
+            <div class="col-33">양배추</div>
+            <div class="col-33">500g</div>
+            <div class="col-33">1500원</div>
+        </div>
+        <div class="row" style="padding-top:5px;">
+            <div class="col-33">양파</div>
+            <div class="col-33">200g</div>
+            <div class="col-33">300원</div>
+        </div>
+        <div class="row" style="padding-top:5px;">
+            <div class="col-33">파</div>
+            <div class="col-33">100g</div>
+            <div class="col-33">200원</div>
+        </div>
+        <div class="row" style="padding-top:5px;">
+            <div class="col-33">소세지</div>
+            <div class="col-33">300g</div>
+            <div class="col-33">1000원</div>
+        </div>
+        <div class="row" style="padding-top:5px;">
+            <div class="col-33">양배추</div>
+            <div class="col-33">500g</div>
+            <div class="col-33">1500원</div>
+        </div>
+        <div class="row" style="padding-top:5px;">
+            <div class="col-33">양파</div>
+            <div class="col-33">200g</div>
+            <div class="col-33">300원</div>
+        </div>
+        <div class="row" style="padding-top:5px;">
+            <div class="col-33">파</div>
+            <div class="col-33">100g</div>
+            <div class="col-33">200원</div>
+        </div>
+        <div class="row" style="padding-top:5px;">
+            <div class="col-33">소세지</div>
+            <div class="col-33">300g</div>
+            <div class="col-33">1000원</div>
+        </div>
+        <div class="row" style="padding-top:5px;">
+            <div class="col-33">양배추</div>
+            <div class="col-33">500g</div>
+            <div class="col-33">1500원</div>
+        </div>
+
+    </div>
+</div>
