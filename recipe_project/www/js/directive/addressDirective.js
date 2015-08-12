@@ -20,7 +20,7 @@ angular.module('recipe.directives', [])
             },
             controller : function($scope, $element){
 
-                $scope.addresswrap = false;
+                /*$scope.addresswrap = false;*/
 
                 $scope.sending_address= {
                     post_code :'',
@@ -64,7 +64,8 @@ angular.module('recipe.directives', [])
 
                 $scope.foldDaumPostcode = function() {
 
-                    $scope.addresswrap = false;
+                    /*$scope.addresswrap = false;*/
+                    element_wrap.style.display = 'none';
                 };
 
                 $scope.openAddress = function(){
@@ -81,7 +82,7 @@ angular.module('recipe.directives', [])
                         }).embed(element_wrap);
                     });
 
-                    /*element_wrap.style.display = 'block';*/
+                    element_wrap.style.display = 'block';
 
                 }
             },
