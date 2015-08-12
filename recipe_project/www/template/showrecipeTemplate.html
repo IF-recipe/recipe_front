@@ -1,0 +1,19 @@
+<div ng-controller="showrecipeCtrl" class="modal image-modal transparent" ng-click="closeModal()">
+    <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="false">
+        <ion-slide ng-repeat="item in recipeSteps">
+            <div class="list card showrecipeCard">
+                <div class="item">
+                    <h2>{{item.title}}</h2>
+                    <p>{{item.description}}</p>
+                    <button class="button button-outline button-block button-small button-assertive">주문하기</button>
+                </div>
+
+                <div class="item item-body">
+                    <img class="full-image" ng-src="{{item.photoPath == '' ? '' : 'img/'+item.photoPath}}">
+                    <br>
+                    <h3 ng-bind-html="item.content"></h3>
+                </div>
+            </div>
+        </ion-slide>
+    </ion-slide-box>
+</div>

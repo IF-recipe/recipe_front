@@ -1,0 +1,91 @@
+body {
+    cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+
+.wide-as-needed {
+    overflow: scroll;
+    white-space: nowrap;
+    position: relative;
+    top:0px;
+    background-color: #ff675d;
+
+}
+
+.scroll {
+    min-width: 100%;
+    height:42px;
+}
+
+.scroll .tabs {
+    height:42px;
+}
+
+.scroll-bar-indicator{
+    background: none;
+}
+
+.button.button-clear.nav-tab-button{
+    font-weight:bold;
+    color:#ffffff;
+    width:70px;
+    min-height:0px;
+}
+
+.button-clear.active, .button-clear.activated{
+    border-bottom: 5px solid #e13934;
+    opacity: 1.0;
+}
+.wide-as-needed .tab-item {
+    width:100px;
+}
+
+.bar.bar-loading {
+    display: block;
+    height: 24px;
+
+    /* starts right below a normal header */
+    top: 44px;
+
+    /* make the text centered vertically and horizontally */
+    text-align: center;
+    padding: 0;
+    line-height: 24px;
+
+    /* transition 'sliding down' (check below)*/
+    -webkit-transition: 200ms all;
+}
+
+
+/*모달 애니메이션 css*/
+@media (max-width: 679px) {
+    .active .modal-backdrop-bg {
+        opacity: .5;
+    }
+    .modal-backdrop-bg {
+        -webkit-transition: opacity 300ms ease-in-out;
+        transition: opacity 300ms ease-in-out;
+        background-color: #000;
+        opacity: 0;
+    }
+}
+
+.mh-slide {
+    -webkit-transform: translate3d(0, 0, 0) scale(0);
+    transform: translate3d(0, 0, 0) scale(0);
+    opacity: 0
+    /*    transform: rotate(0deg) scale(0.761) skew(1deg) translate(0px);*/
+}
+
+.mh-slide.ng-enter, .mh-slide > .ng-enter {
+    -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
+    transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms; }
+
+.mh-slide.ng-enter-active, .mh-slide > .ng-enter-active {
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+}
+
+.mh-slide.ng-leave, .mh-slide > .ng-leave {
+    -webkit-transition: all ease-in-out 250ms;
+    transition: all ease-in-out 250ms; }

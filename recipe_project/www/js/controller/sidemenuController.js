@@ -2,15 +2,15 @@ angular.module('recipe.controllers')
     .controller('sidemenuCtrl', [
         '$scope',
         '$ionicSideMenuDelegate',
-        '$location',
-        function($scope, $ionicSideMenuDelegate, $location) {
+        '$state',
+        function($scope, $ionicSideMenuDelegate, $state) {
             $scope.toggleLeft = function() {
 
                 $ionicSideMenuDelegate.toggleLeft();
             };
 
             $scope.titleClick = function(){
-                $location.path('/recipeall');
+                $state.go('recipeall');
             }
 
     }]);

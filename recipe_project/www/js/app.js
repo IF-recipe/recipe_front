@@ -10,34 +10,52 @@ angular.module('recipe', [
     'recipe.controllers',
     'recipe.services',
     'recipe.directive',
-    'ng-mfb'])
+    'ng-mfb'
+])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
+.run(['$ionicPlatform',
+        '$q',
+        '$http',
+        '$rootScope',
+        '$location',
+        '$window',
+        '$timeout',
+        function($ionicPlatform, $q, $http, $rootScope, $location, $window, $timeout) {
+            $ionicPlatform.ready(function () {
+                // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+                // for form inputs)
+                if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+                    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+                    cordova.plugins.Keyboard.disableScroll(true);
 
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleLightContent();
-    }
-  });
-})
+                }
+                if (window.StatusBar) {
+                    // org.apache.cordova.statusbar required
+                    StatusBar.styleLightContent();
+                }
+            });
+
+            /*$rootScope.$on("$locationChangeStart", function(event, next, current){
+                $rootScope.error = null;
+                console.log("Route change!!!", $location.path());
+                var path = $location.path();
+
+                console.log("App Loaded!!!");
+            });*/
+        }])
+
 
 .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('recipeall', {
                 url: "/",
-                templateUrl: "template/recipeallTemplate.html"
+                templateUrl: "template/recipeallTemplate.html",
+                controller:"recipeallCtrl"
             })
-            .state('showrecipe', {
+            /*.state('showrecipe', {
                 url: "/showrecipe",
                 templateUrl: "template/showrecipeTemplate.html"
-            })
+            })*/
             .state('myprofile', {
                 url: "/myprofile",
                 templateUrl: "template/myprofileTemplate.html"

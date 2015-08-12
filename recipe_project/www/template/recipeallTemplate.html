@@ -1,18 +1,30 @@
-<div class="list card">
+<ion-scroll direction="x" class="wide-as-needed">
+    <a href="#" class="button button-clear nav-tab-button {{foodkinds_filter == '' ? 'active' : ''}}" ng-click="tabClick('전체')">전체</a>
+    <a href="#" class="button button-clear nav-tab-button {{foodkinds_filter == '한식' ? 'active' : ''}}" ng-click="tabClick('한식')">한식</a>
+    <a href="#" class="button button-clear nav-tab-button {{foodkinds_filter == '양식' ? 'active' : ''}}" ng-click="tabClick('양식')">양식</a>
+    <a href="#" class="button button-clear nav-tab-button {{foodkinds_filter == '중식' ? 'active' : ''}}" ng-click="tabClick('중식')">중식</a>
+    <a href="#" class="button button-clear nav-tab-button {{foodkinds_filter == '일식' ? 'active' : ''}}" ng-click="tabClick('일식')">일식</a>
+    <a href="#" class="button button-clear nav-tab-button {{foodkinds_filter == '반찬' ? 'active' : ''}}" ng-click="tabClick('반찬')">반찬</a>
+    <a href="#" class="button button-clear nav-tab-button {{foodkinds_filter == '국거리' ? 'active' : ''}}" ng-click="tabClick('국거리')">국거리</a>
+    <a href="#" class="button button-clear nav-tab-button {{foodkinds_filter == '브런치' ? 'active' : ''}}" ng-click="tabClick('브런치')">브런치</a>
+    <a href="#" class="button button-clear nav-tab-button {{foodkinds_filter == '안주거리' ? 'active' : ''}}" ng-click="tabClick('안주거리')">안주거리</a>
+</ion-scroll>
 
+<div class="list card" ng-repeat="item in recipes | limitTo : recipes_count | filter : foodkinds_filter">
     <div class="item item-avatar">
         <img src="img/ionic.png">
-        <h2>Pretty Hate Machine</h2>
-        <p>Nine Inch Nails</p>
+        <h2>{{item.nickname}}</h2>
     </div>
 
-    <div class="item item-image">
-        <img src="img/moncher.png">
-    </div>
-
-    <a class="item item-icon-left assertive" href="#">
-        <i class="icon ion-music-note"></i>
-        몽쉘을 만들어 보자
+    <a class="item assertive" href="#" ng-click="openshowrecipeModal()">
+        <div class="item item-image">
+            <img ng-src="img/{{item.path}}">
+        </div>
     </a>
-
+    <a class="item assertive" href="#" ng-click="openshowrecipeModal()">
+        <h2>{{item.recipename}}</h2>
+        <h4>{{item.recipesubname}}</h4>
+    </a>
 </div>
+
+<ion-infinite-scroll ng-if="canloadMore" spinner="android" on-infinite="loadMore()"></ion-infinite-scroll>
