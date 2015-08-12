@@ -27,34 +27,29 @@ angular.module('recipe.controllers')
                 content: undefined,
                 photoPath: undefined,
             });
-            //$scope.hideplusBtn=true;
-
-            //$timeout(function() {
-            //    myPopup.close(); //close the popup after 3 seconds for some reason
-            //}, 3000);
-
             /**
              * camera & album getting img
              */
                 //using camera module
             $scope.getPhoto = function(step,sourceType) {
                 var options={
-                    quality: 100,
-                    destinationType: Camera.DestinationType.FILE_URI,
+                    quality: 80,
+                    destinationType: Camera.DestinationType.NATIVE_URI,
                     sourceType: undefined,
                     allowEdit: false,
-                    encodingType: Camera.EncodingType.JPEG,
+                    encodingType: Camera.EncodingType.PNG,
                     targetWidth: 600,
                     targetHeight: 600,
                     popoverOptions: CameraPopoverOptions,
                     saveToPhotoAlbum: false
+                    //,correctOrientation : true
                 };
                 if(sourceType==0){
+                    console.log("getting Camera");
                     options.sourceType=Camera.PictureSourceType.CAMERA;
-                    alert('Getting camera');
                 }else{
+                    console.log("getting album");
                     options.sourceType=Camera.PictureSourceType.PHOTOLIBRARY;
-                    alert('Getting album');
                 }
                 cameraService.getPicture(options).then(function (imageURI) {
                     alert(imageURI);
