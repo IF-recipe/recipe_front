@@ -63,4 +63,10 @@ angular.module('recipe.controllers')
                 passwd_check : ''
             };
 
+
+
+            $scope.closeModal = function(){
+                $scope.$emit('closeModal');
+            }
+
         }]);
