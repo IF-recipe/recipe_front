@@ -3,42 +3,42 @@
     "nickname" : "감자만두",
     "recipename" : "고등어구이로 스태미나를 충전해보아요!",
     "recipesubname" : "기름기를 쫙 뺀 고단백 고등어구이",
-    "path" : "고등어구이.jpg",
+    "path" : "go.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "Trol 수",
     "recipename" : "입맛을 돋구는 꽈리고추양념찜",
     "recipesubname" : "요거하나면 밥 한 공기 뚝딱!",
-    "path" : "꽈리고추양념찜.jpg",
+    "path" : "gochu.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "백곰표밀가루",
     "recipename" : "무더운 여름엔 도토리묵사발을 먹어보아요",
     "recipesubname" : "다이어트에는 이만한게 없죠!",
-    "path" : "도토리묵사발.jpg",
+    "path" : "dotory1.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "도토리묵야채무침",
     "recipesubname" : "",
-    "path" : "도토리묵야채무침.jpg",
+    "path" : "dotory2.jpg",
     "foodkinds" : "양"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "간단히 해먹는 두부조림",
     "recipesubname" : "간장과 두부만 있으면 요리끝!",
-    "path" : "두부조림.jpg",
+    "path" : "doobu.jpg",
     "foodkinds" : "중식"
   },
   {
     "nickname" : "백곰표밀가루",
     "recipename" : "덥고 지칠땐 시원한 미역오이냉국",
     "recipesubname" : "아이들도 참 좋아해요",
-    "path" : "미역오이냉국.jpg",
+    "path" : "o2.jpg",
     "foodkinds" : "안주거리"
   },
 
@@ -46,28 +46,28 @@
     "nickname" : "줴이야",
     "recipename" : "냉장고를 열어도 먹을게 없을 때! 밥도둑양념생깻잎",
     "recipesubname" : "두 그릇은 기본!!",
-    "path" : "밥도둑양념생깻잎.jpg",
+    "path" : "ggatip.jpg",
     "foodkinds" : "일식"
   },
   {
     "nickname" : "낭낭맘",
     "recipename" : "신랑, 애들 모두 좋아하는 수제까스를 만들어보아요",
     "recipesubname" : "수제까스",
-    "path" : "수제까스.jpg",
+    "path" : "gas.jpg",
     "foodkinds" : "일"
   },
   {
     "nickname" : "프라이멀피어",
     "recipename" : "몸에 좋은 카레를 집에서 손쉽게 만들 수 있어요",
     "recipesubname" : "수제카레",
-    "path" : "수제카레.jpg",
+    "path" : "care.jpg",
     "foodkinds" : "퓨전"
   },
   {
     "nickname" : "재연맘",
     "recipename" : "간편하게 먹을수 있는 숙주나물",
     "recipesubname" : "낭낭하게 만들어보아요",
-    "path" : "숙주나물.jpg",
+    "path" : "namul.jpg",
     "foodkinds" : "퓨전"
 
   },
@@ -75,7 +75,7 @@
     "nickname" : "낭낭맘",
     "recipename" : "매콤달콤 싱글낙지볶음",
     "recipesubname" : "남편이 참 좋아해요",
-    "path" : "싱글낙지볶음.jpg",
+    "path" : "nacgi.jpg",
     "foodkinds" : "퓨전"
 
   },
@@ -83,70 +83,70 @@
     "nickname" : "감자만두",
     "recipename" : "먹을 반찬이 없을 땐 김자반이죠!",
     "recipesubname" : "참기름자반볶음",
-    "path" : "참기름자반볶음.jpg",
+    "path" : "jaban.jpg",
     "foodkinds" : "간식"
   },
   {
     "nickname" : "지네딘튀랑",
     "recipename" : "중국집 갈필요 없어요! 집에서 간단하게만드는 칠리탕수강정",
     "recipesubname" : "아이들이 참 좋아해요",
-    "path" : "칠리탕수강정.jpg",
+    "path" : "tangsoo.jpg",
     "foodkinds" : "간식"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "부드럽게 넘어가는 햄치즈순두부",
     "recipesubname" : "부드럽고 고소한 맛이 일품!",
-    "path" : "햄치즈순두부.jpg",
+    "path" : "soondoobu.jpg",
     "foodkinds" : "안주거리"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "뱃속이 부대낄땐 부드러운 허니호박죽",
     "recipesubname" : "부담없이 편하게 먹을 수 있어요",
-    "path" : "허니호박죽.jpg",
+    "path" : "honey.jpg",
     "foodkinds" : "브런치"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "고등어구이로 스태미나를 충전해보아요!",
     "recipesubname" : "기름기를 쫙 뺀 고단백 고등어구이",
-    "path" : "고등어구이.jpg",
+    "path" : "go.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "Trol 수",
     "recipename" : "입맛을 돋구는 꽈리고추양념찜",
     "recipesubname" : "요거하나면 밥 한 공기 뚝딱!",
-    "path" : "꽈리고추양념찜.jpg",
+    "path" : "gochu.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "백곰표밀가루",
     "recipename" : "무더운 여름엔 도토리묵사발을 먹어보아요",
     "recipesubname" : "다이어트에는 이만한게 없죠!",
-    "path" : "도토리묵사발.jpg",
+    "path" : "dotory1.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "도토리묵야채무침",
     "recipesubname" : "",
-    "path" : "도토리묵야채무침.jpg",
+    "path" : "dotory2.jpg",
     "foodkinds" : "양"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "간단히 해먹는 두부조림",
     "recipesubname" : "간장과 두부만 있으면 요리끝!",
-    "path" : "두부조림.jpg",
+    "path" : "doobu.jpg",
     "foodkinds" : "중식"
   },
   {
     "nickname" : "백곰표밀가루",
     "recipename" : "덥고 지칠땐 시원한 미역오이냉국",
     "recipesubname" : "아이들도 참 좋아해요",
-    "path" : "미역오이냉국.jpg",
+    "path" : "o2.jpg",
     "foodkinds" : "안주거리"
   },
 
@@ -154,28 +154,28 @@
     "nickname" : "줴이야",
     "recipename" : "냉장고를 열어도 먹을게 없을 때! 밥도둑양념생깻잎",
     "recipesubname" : "두 그릇은 기본!!",
-    "path" : "밥도둑양념생깻잎.jpg",
+    "path" : "ggatip.jpg",
     "foodkinds" : "일식"
   },
   {
     "nickname" : "낭낭맘",
     "recipename" : "신랑, 애들 모두 좋아하는 수제까스를 만들어보아요",
     "recipesubname" : "수제까스",
-    "path" : "수제까스.jpg",
+    "path" : "gas.jpg",
     "foodkinds" : "일"
   },
   {
     "nickname" : "프라이멀피어",
     "recipename" : "몸에 좋은 카레를 집에서 손쉽게 만들 수 있어요",
     "recipesubname" : "수제카레",
-    "path" : "수제카레.jpg",
+    "path" : "care.jpg",
     "foodkinds" : "퓨전"
   },
   {
     "nickname" : "재연맘",
     "recipename" : "간편하게 먹을수 있는 숙주나물",
     "recipesubname" : "낭낭하게 만들어보아요",
-    "path" : "숙주나물.jpg",
+    "path" : "namul.jpg",
     "foodkinds" : "퓨전"
 
   },
@@ -183,7 +183,7 @@
     "nickname" : "낭낭맘",
     "recipename" : "매콤달콤 싱글낙지볶음",
     "recipesubname" : "남편이 참 좋아해요",
-    "path" : "싱글낙지볶음.jpg",
+    "path" : "nacgi.jpg",
     "foodkinds" : "퓨전"
 
   },
@@ -191,70 +191,70 @@
     "nickname" : "감자만두",
     "recipename" : "먹을 반찬이 없을 땐 김자반이죠!",
     "recipesubname" : "참기름자반볶음",
-    "path" : "참기름자반볶음.jpg",
+    "path" : "jaban.jpg",
     "foodkinds" : "간식"
   },
   {
     "nickname" : "지네딘튀랑",
     "recipename" : "중국집 갈필요 없어요! 집에서 간단하게만드는 칠리탕수강정",
     "recipesubname" : "아이들이 참 좋아해요",
-    "path" : "칠리탕수강정.jpg",
+    "path" : "tangsoo.jpg",
     "foodkinds" : "간식"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "부드럽게 넘어가는 햄치즈순두부",
     "recipesubname" : "부드럽고 고소한 맛이 일품!",
-    "path" : "햄치즈순두부.jpg",
+    "path" : "soondoobu.jpg",
     "foodkinds" : "안주거리"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "뱃속이 부대낄땐 부드러운 허니호박죽",
     "recipesubname" : "부담없이 편하게 먹을 수 있어요",
-    "path" : "허니호박죽.jpg",
+    "path" : "honey.jpg",
     "foodkinds" : "브런치"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "고등어구이로 스태미나를 충전해보아요!",
     "recipesubname" : "기름기를 쫙 뺀 고단백 고등어구이",
-    "path" : "고등어구이.jpg",
+    "path" : "go.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "Trol 수",
     "recipename" : "입맛을 돋구는 꽈리고추양념찜",
     "recipesubname" : "요거하나면 밥 한 공기 뚝딱!",
-    "path" : "꽈리고추양념찜.jpg",
+    "path" : "gochu.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "백곰표밀가루",
     "recipename" : "무더운 여름엔 도토리묵사발을 먹어보아요",
     "recipesubname" : "다이어트에는 이만한게 없죠!",
-    "path" : "도토리묵사발.jpg",
+    "path" : "dotory1.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "도토리묵야채무침",
     "recipesubname" : "",
-    "path" : "도토리묵야채무침.jpg",
+    "path" : "dotory2.jpg",
     "foodkinds" : "양"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "간단히 해먹는 두부조림",
     "recipesubname" : "간장과 두부만 있으면 요리끝!",
-    "path" : "두부조림.jpg",
+    "path" : "doobu.jpg",
     "foodkinds" : "중식"
   },
   {
     "nickname" : "백곰표밀가루",
     "recipename" : "덥고 지칠땐 시원한 미역오이냉국",
     "recipesubname" : "아이들도 참 좋아해요",
-    "path" : "미역오이냉국.jpg",
+    "path" : "o2.jpg",
     "foodkinds" : "안주거리"
   },
 
@@ -262,28 +262,28 @@
     "nickname" : "줴이야",
     "recipename" : "냉장고를 열어도 먹을게 없을 때! 밥도둑양념생깻잎",
     "recipesubname" : "두 그릇은 기본!!",
-    "path" : "밥도둑양념생깻잎.jpg",
+    "path" : "ggatip.jpg",
     "foodkinds" : "일식"
   },
   {
     "nickname" : "낭낭맘",
     "recipename" : "신랑, 애들 모두 좋아하는 수제까스를 만들어보아요",
     "recipesubname" : "수제까스",
-    "path" : "수제까스.jpg",
+    "path" : "gas.jpg",
     "foodkinds" : "일"
   },
   {
     "nickname" : "프라이멀피어",
     "recipename" : "몸에 좋은 카레를 집에서 손쉽게 만들 수 있어요",
     "recipesubname" : "수제카레",
-    "path" : "수제카레.jpg",
+    "path" : "care.jpg",
     "foodkinds" : "퓨전"
   },
   {
     "nickname" : "재연맘",
     "recipename" : "간편하게 먹을수 있는 숙주나물",
     "recipesubname" : "낭낭하게 만들어보아요",
-    "path" : "숙주나물.jpg",
+    "path" : "namul.jpg",
     "foodkinds" : "퓨전"
 
   },
@@ -291,7 +291,7 @@
     "nickname" : "낭낭맘",
     "recipename" : "매콤달콤 싱글낙지볶음",
     "recipesubname" : "남편이 참 좋아해요",
-    "path" : "싱글낙지볶음.jpg",
+    "path" : "nacgi.jpg",
     "foodkinds" : "퓨전"
 
   },
@@ -299,70 +299,70 @@
     "nickname" : "감자만두",
     "recipename" : "먹을 반찬이 없을 땐 김자반이죠!",
     "recipesubname" : "참기름자반볶음",
-    "path" : "참기름자반볶음.jpg",
+    "path" : "jaban.jpg",
     "foodkinds" : "간식"
   },
   {
     "nickname" : "지네딘튀랑",
     "recipename" : "중국집 갈필요 없어요! 집에서 간단하게만드는 칠리탕수강정",
     "recipesubname" : "아이들이 참 좋아해요",
-    "path" : "칠리탕수강정.jpg",
+    "path" : "tangsoo.jpg",
     "foodkinds" : "간식"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "부드럽게 넘어가는 햄치즈순두부",
     "recipesubname" : "부드럽고 고소한 맛이 일품!",
-    "path" : "햄치즈순두부.jpg",
+    "path" : "soondoobu.jpg",
     "foodkinds" : "안주거리"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "뱃속이 부대낄땐 부드러운 허니호박죽",
     "recipesubname" : "부담없이 편하게 먹을 수 있어요",
-    "path" : "허니호박죽.jpg",
+    "path" : "honey.jpg",
     "foodkinds" : "브런치"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "고등어구이로 스태미나를 충전해보아요!",
     "recipesubname" : "기름기를 쫙 뺀 고단백 고등어구이",
-    "path" : "고등어구이.jpg",
+    "path" : "go.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "Trol 수",
     "recipename" : "입맛을 돋구는 꽈리고추양념찜",
     "recipesubname" : "요거하나면 밥 한 공기 뚝딱!",
-    "path" : "꽈리고추양념찜.jpg",
+    "path" : "gochu.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "백곰표밀가루",
     "recipename" : "무더운 여름엔 도토리묵사발을 먹어보아요",
     "recipesubname" : "다이어트에는 이만한게 없죠!",
-    "path" : "도토리묵사발.jpg",
+    "path" : "dotory1.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "도토리묵야채무침",
     "recipesubname" : "",
-    "path" : "도토리묵야채무침.jpg",
+    "path" : "dotory2.jpg",
     "foodkinds" : "양"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "간단히 해먹는 두부조림",
     "recipesubname" : "간장과 두부만 있으면 요리끝!",
-    "path" : "두부조림.jpg",
+    "path" : "doobu.jpg",
     "foodkinds" : "중식"
   },
   {
     "nickname" : "백곰표밀가루",
     "recipename" : "덥고 지칠땐 시원한 미역오이냉국",
     "recipesubname" : "아이들도 참 좋아해요",
-    "path" : "미역오이냉국.jpg",
+    "path" : "o2.jpg",
     "foodkinds" : "안주거리"
   },
 
@@ -370,28 +370,28 @@
     "nickname" : "줴이야",
     "recipename" : "냉장고를 열어도 먹을게 없을 때! 밥도둑양념생깻잎",
     "recipesubname" : "두 그릇은 기본!!",
-    "path" : "밥도둑양념생깻잎.jpg",
+    "path" : "ggatip.jpg",
     "foodkinds" : "일식"
   },
   {
     "nickname" : "낭낭맘",
     "recipename" : "신랑, 애들 모두 좋아하는 수제까스를 만들어보아요",
     "recipesubname" : "수제까스",
-    "path" : "수제까스.jpg",
+    "path" : "gas.jpg",
     "foodkinds" : "일"
   },
   {
     "nickname" : "프라이멀피어",
     "recipename" : "몸에 좋은 카레를 집에서 손쉽게 만들 수 있어요",
     "recipesubname" : "수제카레",
-    "path" : "수제카레.jpg",
+    "path" : "care.jpg",
     "foodkinds" : "퓨전"
   },
   {
     "nickname" : "재연맘",
     "recipename" : "간편하게 먹을수 있는 숙주나물",
     "recipesubname" : "낭낭하게 만들어보아요",
-    "path" : "숙주나물.jpg",
+    "path" : "namul.jpg",
     "foodkinds" : "퓨전"
 
   },
@@ -399,7 +399,7 @@
     "nickname" : "낭낭맘",
     "recipename" : "매콤달콤 싱글낙지볶음",
     "recipesubname" : "남편이 참 좋아해요",
-    "path" : "싱글낙지볶음.jpg",
+    "path" : "nacgi.jpg",
     "foodkinds" : "퓨전"
 
   },
@@ -407,70 +407,70 @@
     "nickname" : "감자만두",
     "recipename" : "먹을 반찬이 없을 땐 김자반이죠!",
     "recipesubname" : "참기름자반볶음",
-    "path" : "참기름자반볶음.jpg",
+    "path" : "jaban.jpg",
     "foodkinds" : "간식"
   },
   {
     "nickname" : "지네딘튀랑",
     "recipename" : "중국집 갈필요 없어요! 집에서 간단하게만드는 칠리탕수강정",
     "recipesubname" : "아이들이 참 좋아해요",
-    "path" : "칠리탕수강정.jpg",
+    "path" : "tangsoo.jpg",
     "foodkinds" : "간식"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "부드럽게 넘어가는 햄치즈순두부",
     "recipesubname" : "부드럽고 고소한 맛이 일품!",
-    "path" : "햄치즈순두부.jpg",
+    "path" : "soondoobu.jpg",
     "foodkinds" : "안주거리"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "뱃속이 부대낄땐 부드러운 허니호박죽",
     "recipesubname" : "부담없이 편하게 먹을 수 있어요",
-    "path" : "허니호박죽.jpg",
+    "path" : "honey.jpg",
     "foodkinds" : "브런치"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "고등어구이로 스태미나를 충전해보아요!",
     "recipesubname" : "기름기를 쫙 뺀 고단백 고등어구이",
-    "path" : "고등어구이.jpg",
+    "path" : "go.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "Trol 수",
     "recipename" : "입맛을 돋구는 꽈리고추양념찜",
     "recipesubname" : "요거하나면 밥 한 공기 뚝딱!",
-    "path" : "꽈리고추양념찜.jpg",
+    "path" : "gochu.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "백곰표밀가루",
     "recipename" : "무더운 여름엔 도토리묵사발을 먹어보아요",
     "recipesubname" : "다이어트에는 이만한게 없죠!",
-    "path" : "도토리묵사발.jpg",
+    "path" : "dotory1.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "도토리묵야채무침",
     "recipesubname" : "",
-    "path" : "도토리묵야채무침.jpg",
+    "path" : "dotory2.jpg",
     "foodkinds" : "양"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "간단히 해먹는 두부조림",
     "recipesubname" : "간장과 두부만 있으면 요리끝!",
-    "path" : "두부조림.jpg",
+    "path" : "doobu.jpg",
     "foodkinds" : "중식"
   },
   {
     "nickname" : "백곰표밀가루",
     "recipename" : "덥고 지칠땐 시원한 미역오이냉국",
     "recipesubname" : "아이들도 참 좋아해요",
-    "path" : "미역오이냉국.jpg",
+    "path" : "o2.jpg",
     "foodkinds" : "안주거리"
   },
 
@@ -478,28 +478,28 @@
     "nickname" : "줴이야",
     "recipename" : "냉장고를 열어도 먹을게 없을 때! 밥도둑양념생깻잎",
     "recipesubname" : "두 그릇은 기본!!",
-    "path" : "밥도둑양념생깻잎.jpg",
+    "path" : "ggatip.jpg",
     "foodkinds" : "일식"
   },
   {
     "nickname" : "낭낭맘",
     "recipename" : "신랑, 애들 모두 좋아하는 수제까스를 만들어보아요",
     "recipesubname" : "수제까스",
-    "path" : "수제까스.jpg",
+    "path" : "gas.jpg",
     "foodkinds" : "일"
   },
   {
     "nickname" : "프라이멀피어",
     "recipename" : "몸에 좋은 카레를 집에서 손쉽게 만들 수 있어요",
     "recipesubname" : "수제카레",
-    "path" : "수제카레.jpg",
+    "path" : "care.jpg",
     "foodkinds" : "퓨전"
   },
   {
     "nickname" : "재연맘",
     "recipename" : "간편하게 먹을수 있는 숙주나물",
     "recipesubname" : "낭낭하게 만들어보아요",
-    "path" : "숙주나물.jpg",
+    "path" : "namul.jpg",
     "foodkinds" : "퓨전"
 
   },
@@ -507,7 +507,7 @@
     "nickname" : "낭낭맘",
     "recipename" : "매콤달콤 싱글낙지볶음",
     "recipesubname" : "남편이 참 좋아해요",
-    "path" : "싱글낙지볶음.jpg",
+    "path" : "nacgi.jpg",
     "foodkinds" : "퓨전"
 
   },
@@ -515,70 +515,70 @@
     "nickname" : "감자만두",
     "recipename" : "먹을 반찬이 없을 땐 김자반이죠!",
     "recipesubname" : "참기름자반볶음",
-    "path" : "참기름자반볶음.jpg",
+    "path" : "jaban.jpg",
     "foodkinds" : "간식"
   },
   {
     "nickname" : "지네딘튀랑",
     "recipename" : "중국집 갈필요 없어요! 집에서 간단하게만드는 칠리탕수강정",
     "recipesubname" : "아이들이 참 좋아해요",
-    "path" : "칠리탕수강정.jpg",
+    "path" : "tangsoo.jpg",
     "foodkinds" : "간식"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "부드럽게 넘어가는 햄치즈순두부",
     "recipesubname" : "부드럽고 고소한 맛이 일품!",
-    "path" : "햄치즈순두부.jpg",
+    "path" : "soondoobu.jpg",
     "foodkinds" : "안주거리"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "뱃속이 부대낄땐 부드러운 허니호박죽",
     "recipesubname" : "부담없이 편하게 먹을 수 있어요",
-    "path" : "허니호박죽.jpg",
+    "path" : "honey.jpg",
     "foodkinds" : "브런치"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "고등어구이로 스태미나를 충전해보아요!",
     "recipesubname" : "기름기를 쫙 뺀 고단백 고등어구이",
-    "path" : "고등어구이.jpg",
+    "path" : "go.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "Trol 수",
     "recipename" : "입맛을 돋구는 꽈리고추양념찜",
     "recipesubname" : "요거하나면 밥 한 공기 뚝딱!",
-    "path" : "꽈리고추양념찜.jpg",
+    "path" : "gochu.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "백곰표밀가루",
     "recipename" : "무더운 여름엔 도토리묵사발을 먹어보아요",
     "recipesubname" : "다이어트에는 이만한게 없죠!",
-    "path" : "도토리묵사발.jpg",
+    "path" : "dotory1.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "도토리묵야채무침",
     "recipesubname" : "",
-    "path" : "도토리묵야채무침.jpg",
+    "path" : "dotory2.jpg",
     "foodkinds" : "양"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "간단히 해먹는 두부조림",
     "recipesubname" : "간장과 두부만 있으면 요리끝!",
-    "path" : "두부조림.jpg",
+    "path" : "doobu.jpg",
     "foodkinds" : "중식"
   },
   {
     "nickname" : "백곰표밀가루",
     "recipename" : "덥고 지칠땐 시원한 미역오이냉국",
     "recipesubname" : "아이들도 참 좋아해요",
-    "path" : "미역오이냉국.jpg",
+    "path" : "o2.jpg",
     "foodkinds" : "안주거리"
   },
 
@@ -586,28 +586,28 @@
     "nickname" : "줴이야",
     "recipename" : "냉장고를 열어도 먹을게 없을 때! 밥도둑양념생깻잎",
     "recipesubname" : "두 그릇은 기본!!",
-    "path" : "밥도둑양념생깻잎.jpg",
+    "path" : "ggatip.jpg",
     "foodkinds" : "일식"
   },
   {
     "nickname" : "낭낭맘",
     "recipename" : "신랑, 애들 모두 좋아하는 수제까스를 만들어보아요",
     "recipesubname" : "수제까스",
-    "path" : "수제까스.jpg",
+    "path" : "gas.jpg",
     "foodkinds" : "일"
   },
   {
     "nickname" : "프라이멀피어",
     "recipename" : "몸에 좋은 카레를 집에서 손쉽게 만들 수 있어요",
     "recipesubname" : "수제카레",
-    "path" : "수제카레.jpg",
+    "path" : "care.jpg",
     "foodkinds" : "퓨전"
   },
   {
     "nickname" : "재연맘",
     "recipename" : "간편하게 먹을수 있는 숙주나물",
     "recipesubname" : "낭낭하게 만들어보아요",
-    "path" : "숙주나물.jpg",
+    "path" : "namul.jpg",
     "foodkinds" : "퓨전"
 
   },
@@ -615,7 +615,7 @@
     "nickname" : "낭낭맘",
     "recipename" : "매콤달콤 싱글낙지볶음",
     "recipesubname" : "남편이 참 좋아해요",
-    "path" : "싱글낙지볶음.jpg",
+    "path" : "nacgi.jpg",
     "foodkinds" : "퓨전"
 
   },
@@ -623,70 +623,70 @@
     "nickname" : "감자만두",
     "recipename" : "먹을 반찬이 없을 땐 김자반이죠!",
     "recipesubname" : "참기름자반볶음",
-    "path" : "참기름자반볶음.jpg",
+    "path" : "jaban.jpg",
     "foodkinds" : "간식"
   },
   {
     "nickname" : "지네딘튀랑",
     "recipename" : "중국집 갈필요 없어요! 집에서 간단하게만드는 칠리탕수강정",
     "recipesubname" : "아이들이 참 좋아해요",
-    "path" : "칠리탕수강정.jpg",
+    "path" : "tangsoo.jpg",
     "foodkinds" : "간식"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "부드럽게 넘어가는 햄치즈순두부",
     "recipesubname" : "부드럽고 고소한 맛이 일품!",
-    "path" : "햄치즈순두부.jpg",
+    "path" : "soondoobu.jpg",
     "foodkinds" : "안주거리"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "뱃속이 부대낄땐 부드러운 허니호박죽",
     "recipesubname" : "부담없이 편하게 먹을 수 있어요",
-    "path" : "허니호박죽.jpg",
+    "path" : "honey.jpg",
     "foodkinds" : "브런치"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "고등어구이로 스태미나를 충전해보아요!",
     "recipesubname" : "기름기를 쫙 뺀 고단백 고등어구이",
-    "path" : "고등어구이.jpg",
+    "path" : "go.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "Trol 수",
     "recipename" : "입맛을 돋구는 꽈리고추양념찜",
     "recipesubname" : "요거하나면 밥 한 공기 뚝딱!",
-    "path" : "꽈리고추양념찜.jpg",
+    "path" : "gochu.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "백곰표밀가루",
     "recipename" : "무더운 여름엔 도토리묵사발을 먹어보아요",
     "recipesubname" : "다이어트에는 이만한게 없죠!",
-    "path" : "도토리묵사발.jpg",
+    "path" : "dotory1.jpg",
     "foodkinds" : "한식"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "도토리묵야채무침",
     "recipesubname" : "",
-    "path" : "도토리묵야채무침.jpg",
+    "path" : "dotory2.jpg",
     "foodkinds" : "양"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "간단히 해먹는 두부조림",
     "recipesubname" : "간장과 두부만 있으면 요리끝!",
-    "path" : "두부조림.jpg",
+    "path" : "doobu.jpg",
     "foodkinds" : "중식"
   },
   {
     "nickname" : "백곰표밀가루",
     "recipename" : "덥고 지칠땐 시원한 미역오이냉국",
     "recipesubname" : "아이들도 참 좋아해요",
-    "path" : "미역오이냉국.jpg",
+    "path" : "o2.jpg",
     "foodkinds" : "안주거리"
   },
 
@@ -694,28 +694,28 @@
     "nickname" : "줴이야",
     "recipename" : "냉장고를 열어도 먹을게 없을 때! 밥도둑양념생깻잎",
     "recipesubname" : "두 그릇은 기본!!",
-    "path" : "밥도둑양념생깻잎.jpg",
+    "path" : "ggatip.jpg",
     "foodkinds" : "일식"
   },
   {
     "nickname" : "낭낭맘",
     "recipename" : "신랑, 애들 모두 좋아하는 수제까스를 만들어보아요",
     "recipesubname" : "수제까스",
-    "path" : "수제까스.jpg",
+    "path" : "gas.jpg",
     "foodkinds" : "일"
   },
   {
     "nickname" : "프라이멀피어",
     "recipename" : "몸에 좋은 카레를 집에서 손쉽게 만들 수 있어요",
     "recipesubname" : "수제카레",
-    "path" : "수제카레.jpg",
+    "path" : "care.jpg",
     "foodkinds" : "퓨전"
   },
   {
     "nickname" : "재연맘",
     "recipename" : "간편하게 먹을수 있는 숙주나물",
     "recipesubname" : "낭낭하게 만들어보아요",
-    "path" : "숙주나물.jpg",
+    "path" : "namul.jpg",
     "foodkinds" : "퓨전"
 
   },
@@ -723,7 +723,7 @@
     "nickname" : "낭낭맘",
     "recipename" : "매콤달콤 싱글낙지볶음",
     "recipesubname" : "남편이 참 좋아해요",
-    "path" : "싱글낙지볶음.jpg",
+    "path" : "nacgi.jpg",
     "foodkinds" : "퓨전"
 
   },
@@ -731,28 +731,28 @@
     "nickname" : "감자만두",
     "recipename" : "먹을 반찬이 없을 땐 김자반이죠!",
     "recipesubname" : "참기름자반볶음",
-    "path" : "참기름자반볶음.jpg",
+    "path" : "jaban.jpg",
     "foodkinds" : "간식"
   },
   {
     "nickname" : "지네딘튀랑",
     "recipename" : "중국집 갈필요 없어요! 집에서 간단하게만드는 칠리탕수강정",
     "recipesubname" : "아이들이 참 좋아해요",
-    "path" : "칠리탕수강정.jpg",
+    "path" : "tangsoo.jpg",
     "foodkinds" : "간식"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "부드럽게 넘어가는 햄치즈순두부",
     "recipesubname" : "부드럽고 고소한 맛이 일품!",
-    "path" : "햄치즈순두부.jpg",
+    "path" : "soondoobu.jpg",
     "foodkinds" : "안주거리"
   },
   {
     "nickname" : "감자만두",
     "recipename" : "뱃속이 부대낄땐 부드러운 허니호박죽",
     "recipesubname" : "부담없이 편하게 먹을 수 있어요",
-    "path" : "허니호박죽.jpg",
+    "path" : "honey.jpg",
     "foodkinds" : "브런치"
   }
 ]
