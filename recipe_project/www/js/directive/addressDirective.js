@@ -69,17 +69,17 @@ angular.module('recipe.directives', [])
 
                 $scope.openAddress = function(){
 
-
                     $scope.addresswrap = true;
 
-                    new daum.Postcode({
-                        oncomplete: function(data) {
-                            $scope.sending_address.post_code = data.postcode;
-                            $scope.sending_address.road_address = data.roadAddress;
-                            $scope.sending_address.jibun_address = data.jibunAddress;
-                        }
-
-                    }).embed(element_wrap);
+                    daum.postcode.load(function(){
+                        new daum.Postcode({
+                            oncomplete: function(data) {
+                                $scope.sending_address.post_code = data.postcode;
+                                $scope.sending_address.road_address = data.roadAddress;
+                                $scope.sending_address.jibun_address = data.jibunAddress;
+                            }
+                        }).embed(element_wrap);
+                    });
 
                     /*element_wrap.style.display = 'block';*/
 

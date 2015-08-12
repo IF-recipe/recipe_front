@@ -30,6 +30,7 @@ angular.module('recipe', [
   });
 })
 
+
 .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('recipeall', {
@@ -81,7 +82,12 @@ angular.module('recipe', [
 
         $urlRouterProvider.otherwise("/");
 
-
+        /*$sceDelegateProvider.resourceUrlWhitelist([
+            // Allow same origin resource loads.
+            'self',
+            // Allow loading from our assets domain.  Notice the difference between * and **.
+            'http://postcode.map.daum.net/!**'
+        ]);*/
 });
 
 angular.module('recipe.controllers', []);
