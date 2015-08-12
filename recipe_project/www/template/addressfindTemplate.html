@@ -8,9 +8,11 @@
     <button style="display:inline; float:left;" class="button button-small button-assertive" ng-click="openAddress()">우편번호 찾기</button>
 
     <input style="display:inline;float:right;" type="text" placeholder="우편번호" ng-model='sending_address.post_code' value='sending_address.post_code' disabled/>
-    <div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
-        <img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" ng-click="foldDaumPostcode()" alt="접기 버튼">
-    </div>
+
+</div>
+
+<div ng-show="addresswrap" id="wrap" style="border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+    <img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" ng-click="foldDaumPostcode()" alt="접기 버튼">
 </div>
 
 

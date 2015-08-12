@@ -20,6 +20,8 @@ angular.module('recipe.directives', [])
             },
             controller : function($scope, $element){
 
+                $scope.addresswrap = false;
+
                 $scope.sending_address= {
                     post_code :'',
                     road_address:'',
@@ -58,17 +60,17 @@ angular.module('recipe.directives', [])
                     }
                 };
 
-
-
                 var element_wrap = document.getElementById('wrap');
-
 
                 $scope.foldDaumPostcode = function() {
 
-                    element_wrap.style.display = 'none';
+                    $scope.addresswrap = false;
                 };
 
                 $scope.openAddress = function(){
+
+
+                    $scope.addresswrap = true;
 
                     new daum.Postcode({
                         oncomplete: function(data) {
@@ -79,7 +81,7 @@ angular.module('recipe.directives', [])
 
                     }).embed(element_wrap);
 
-                    element_wrap.style.display = 'block';
+                    /*element_wrap.style.display = 'block';*/
 
                 }
             },
