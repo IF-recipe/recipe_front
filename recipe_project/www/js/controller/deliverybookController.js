@@ -22,16 +22,16 @@ angular.module('recipe.controllers')
             temp.representation = true;
             temp.address_title = '유자성집';
             temp.zip_code = '378-141';
-            temp.jibun_address = '충남아산시 신창면 읍내리 순천향대학교 앙뜨레 쁘레너관 E307';
-            temp.road_address = '충남아산시 순천향대학길길길 앙뜨레 쁘레너관 E307';
+            temp.jibun_address = '충남아산시 신창면 읍내리 순천향대학교';
+            temp.detail_address = ' 앙뜨레 쁘레너관 E307';
             temp.phone = '010-4230-0986';
             $scope.delivery_book.push(temp);
             var temp1 = {};
             temp1.address_title = '유자성집2';
             temp1.representation = false;
             temp1.zip_code = '378-111';
-            temp1.jibun_address = '충남아산시 신창면 읍내리 순천향대학교 앙뜨레 쁘레너관 E3011237';
-            temp1.road_address = '충남아산시 경희길길길';
+            temp1.jibun_address = '충남아산시 신창면 읍내리 ';
+            temp1.detail_address = '경희아파트 109-909호';
             temp1.phone = '010-4230-0000';
             $scope.delivery_book.push(temp1);
 
@@ -81,6 +81,7 @@ angular.module('recipe.controllers')
                  */
 
                 $window.alert('추가완료');
+
                 $scope.address_find_values.post_code = data.address.post_code;
                 $scope.address_find_values.road_address = data.address.road_address;
                 $scope.address_find_values.jibun_address = data.address.jibun_address;

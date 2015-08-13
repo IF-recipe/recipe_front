@@ -11,80 +11,79 @@
 angular.module('recipe.directives', [])
     .directive('addressFind', [function () {
         return {
-            restrict : 'E',
-            templateUrl : 'template/addressfindTemplate.html',
-            scope:{
-                status : '@status',
-                delivery : '=deliveryEdit',
-                index : '=deliveryIndex'
+            restrict: 'E',
+            templateUrl: 'template/addressfindTemplate.html',
+            scope: {
+                status: '@status',
+                delivery: '=deliveryEdit',
+                index: '=deliveryIndex'
             },
-            controller : function($scope, $element){
+            controller: function ($scope, $element) {
 
-                /*$scope.addresswrap = false;*/
+                (function post() {
+                    $("#postcodify").postcodify({
+                        insertPostcode6: "#post_code",
+                        insertJibeonAddress: "#jibun_address",
+                        hideOldAddresses: false,
+                        afterSelect: function () {
+                            $("#postcodify div.postcode_search_result").remove();
+                            $("#postcodify div.postcode_search_status.summary").hide();
+                            $("#postcodify div.too_many").hide();
+                        }
 
-                $scope.sending_address= {
-                    post_code :'',
-                    road_address:'',
-                    jibun_address : ''
+                    });
+                }());
+
+                var inputBox = angular.element('.keyword');
+                inputBox.attr('placeholder', '도로명+건물번호 또는 동/리+번지로 입력해주세요');
+                inputBox.attr('size', '40');
+                inputBox.addClass('item item-input');
+
+                var searchBtn = angular.element(".search_button");
+                searchBtn.css('margin-top','30px');
+                searchBtn.addClass(' button button-block button-positive ');
+
+
+                $scope.sending_address = {
+                    post_code: '',
+                    detail_address: '',
+                    jibun_address: ''
                 };
-                if($scope.status === 'edit'){
+
+                if ($scope.status === 'edit') {
 
                     $scope.sending_address.post_code = $scope.delivery.zip_code;
-                    $scope.sending_address.road_address = $scope.delivery.road_address;
+                    $scope.sending_address.detail_address = $scope.delivery.detail_address;
                     $scope.sending_address.jibun_address = $scope.delivery.jibun_address;
                     $scope.sending_address.phone = $scope.delivery.phone;
                     $scope.sending_address.address_title = $scope.delivery.address_title;
                     $scope.btn_title = '수정하기';
 
-                }else{
+                } else {
+
                     $scope.btn_title = '추가';
+
                 }
 
+                $scope.confirmClick = function () {
+                    if ($scope.status === 'add') {
 
-                $scope.confirmClick = function(){
-                    if($scope.status === 'add'){
-
-                        $scope.$emit('addcompleteFunc', {address : $scope.sending_address, index : $scope.index});
-                    }else{
+                        $scope.$emit('addcompleteFunc', {address: $scope.sending_address, index: $scope.index});
+                    } else {
 
                         console.log($scope.sending_address);
-                        $scope.$emit('editcompleteFunc', {address : $scope.sending_address, index : $scope.index});
+                        $scope.$emit('editcompleteFunc', {address: $scope.sending_address, index: $scope.index});
                     }
                 };
-                $scope.closeClick = function(){
-                    if($scope.status === 'add'){
+
+                $scope.closeClick = function () {
+                    if ($scope.status === 'add') {
                         $scope.$emit('addcloseFunc', $scope.index);
-                    }else{
+                    } else {
                         console.log('close');
                         $scope.$emit('editcloseFunc', $scope.index);
                     }
                 };
-
-                var element_wrap = document.getElementById('wrap');
-
-                $scope.foldDaumPostcode = function() {
-
-                    /*$scope.addresswrap = false;*/
-                    element_wrap.style.display = 'none';
-                };
-
-                $scope.openAddress = function(){
-
-                    $scope.addresswrap = true;
-
-                    daum.postcode.load(function(){
-                        new daum.Postcode({
-                            oncomplete: function(data) {
-                                $scope.sending_address.post_code = data.postcode;
-                                $scope.sending_address.road_address = data.roadAddress;
-                                $scope.sending_address.jibun_address = data.jibunAddress;
-                            }
-                        }).embed(element_wrap);
-                    });
-
-                    element_wrap.style.display = 'block';
-
-                }
             },
             link: function (scope, elem, attrs, ctrl) {
             }
