@@ -1,37 +1,33 @@
-
-
 <label class="item item-input">
     <span class="input-label">배송지 이름</span>
-    <input type="text" ng-model="sending_address.address_title"  >
+    <input type="text" ng-model="sending_address.address_title" placeholder="배송지 명을 입력해주세요!">
 </label>
-<div style="text-align:center;float:left; width:100%;padding-top:5px;">
-    <button style="display:inline; float:left;" class="button button-small button-assertive" ng-click="openAddress()">우편번호 찾기</button>
 
-    <input style="display:inline;float:right;" type="text" placeholder="우편번호" ng-model='sending_address.post_code' value='sending_address.post_code' disabled/>
+
+<div id="postcodify">
 
 </div>
 
-<div  id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
-    <img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" ng-click="foldDaumPostcode()" alt="접기 버튼">
-</div>
+<label class="item item-input" style="padding-top:10px;">
+    <input style="display:inline;float:left;" size="6" id="post_code" type="text" placeholder="우편번호"
+           ng-model='sending_address.post_code' value='sending_address.post_code' disabled/>
 
 
-<label class="item item-input">
-<textarea placeholder="지번주소" ng-model='sending_address.jibun_address'
+<textarea placeholder="지번주소" id="jibun_address" ng-model='sending_address.jibun_address'
           value='sending_address.jibun_address' style="width:100%;"></textarea>
 </label>
-<label class="item item-input" style="padding-top:5px;">
-<textarea type="text" placeholder="도로명주소" ng-model='sending_address.road_address'
-          value='sending_address.road_address' style="width:100%;"></textarea>
+<label class="item item-input" style="padding-top:10px;">
+<textarea type="text" placeholder="상세주소입력" ng-model='sending_address.detail_address'
+          value='sending_address.detail_address' style="width:100%;"></textarea>
 </label>
 
 <label class="item item-input">
     <span class="input-label">전화번호</span>
-    <input type="text" ng-model="sending_address.phone" >
+    <input type="text" ng-model="sending_address.phone" placeholder="전화번호를 입력해주세요!">
 </label>
 
 <div style="text-align:center; padding-top:3px;">
-    <button class="button button-small button-assertive" ng-click="confirmClick();" >{{btn_title}}</button>
-    <button class="button button-small button-assertive" ng-click="closeClick();" >닫기</button>
+    <button class="button button-small button-assertive" ng-click="confirmClick();">{{btn_title}}</button>
+    <button class="button button-small button-assertive" ng-click="closeClick();">닫기</button>
 </div>
 
