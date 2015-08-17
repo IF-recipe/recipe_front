@@ -14,9 +14,9 @@ angular.module('recipe.controllers')
         '$ionicScrollDelegate',
         '$ionicLoading',
         '$cordovaFile',
-        'cameraService',
+        '$cameraService',
         '$cordovaFileTransfer',
-        function($scope, $ionicScrollDelegate, $ionicLoading, $cordovaFile, cameraService, $cordovaFileTransfer) {
+        function($scope, $ionicScrollDelegate, $ionicLoading, $cordovaFile, $cameraService, $cordovaFileTransfer) {
 
 
             $scope.foodkinds=["한식","중식","양식","일식"];
