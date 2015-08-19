@@ -5,25 +5,37 @@
             <span class="input-label" style="color:#e47865;">제목 예) 맛나맛나 제육볶음</span>
             <input type="text" placeholder="제목" ng-model="newRecipe.title">
         </label>
+
         <label class="item item-input item-floating-label">
             <span class="input-label" style="color:#e47865;">간단 설명 예) 고기와 고춧가루면 끝! </span>
             <input type="text" placeholder="간단 설명" ng-model="newRecipe.description">
         </label>
+
         <label class="item item-input item-floating-label">
             <span class="input-label" style="color:#e47865;">요리 재료 예) 양파 1개, 당근 1개, 식용유, ...</span>
             <input type="text" placeholder="요리 재료" ng-model="newRecipe.materials">
         </label>
-        <label class="item item-input item-floating-label">
-            <span class="input-label" style="color:#e47865;">해시태그 예)제육볶음, 제육, 볶음, 맛있는, 고기</span>
-            <input type="text" placeholder="해시태그" ng-model="newRecipe.hashTagName">
-        </label>
+
+        <div class="row">
+            <div class="col-50">
+                <label class="item-input item-floating-label">
+                    <span class="input-label" style="color:#e47865;">해시태그</span>
+                    <input type="text" placeholder="태그 입력" ng-keydown="addTag($event)" ng-model="inputTag">
+                </label>
+            </div>
+            <div class="col-50">
+                <button class="button button-small button-clear button-stable"
+                        ng-repeat="btn in newRecipe.hashtag"
+                        ng-click="removeTag($index)">
+                    #{{btn.name}}
+                </button>
+            </div>
+        </div>
+
         <label class="item item-input item-select">
             <div class="input-label" style="color:saddlebrown">
                 음식 분류
             </div>
-            <!--<select ng-init="newRecipe.foodkind = foodkinds[0]"-->
-            <!--ng-model="newRecipe.foodkind"-->
-            <!--ng-options="foodkind.name for foodkind in foodkinds"></select>-->
             <select ng-init="newRecipe.foodkind = foodkinds[0]"
                     ng-model="newRecipe.foodkind"
                     ng-options="foodkind for foodkind in foodkinds"></select>
@@ -40,33 +52,38 @@
                 <p style="text-decoration:none">{{newRecipe.title}}</p>
             </div>
             <div class="item item-body">
-
                 <a ng-show="step.photoPath === undefined" class="button button-icon icon-right ion-camera"
-                   ng-click="getPhoto(step,0)"> 카메라</a>
+                   ng-click="getPhoto(step,0)"> 카메라 </a>
 
                 <a ng-show="step.photoPath === undefined" class="button button-icon icon-right ion-image"
-                   ng-click="getPhoto(step,1)"> 앨범</a>
+                   ng-click="getPhoto(step,1)"> 앨범 </a>
 
                 <img ng-show="step.photoPath !== undefined" ng-src="{{step.photoPath}}" style="width:100%;" ng-click="getPhoto(step)">
 
-                <label class="item-input" style="border:1px;">
+                <label class="item item-input" style="border:1px;">
                     <textarea placeholder="내용을 입력해주세요." rows="4" cols="14" ng-model="step.content" style="border:2px">
                 </textarea>
                 </label>
-                {{newRecipe.steps[$index]}}
-
             </div>
         </ion-item>
     </ion-list>
     <button class="button button-block button-assertive icon ion-ios-plus-outline"
             ng-click="addinputForm()">
     </button>
-    <button class="button button-block button-positive" ng-click="previewRecipe()">
-        미리 보기
-    </button>
-    <button class="button button-block" ng-click="submitRecipe()">
-        작성 완료
-    </button>
+    <div class="row">
+        <div class="col-50">
+            <button class="button button-block button-assertive" ng-click="previewRecipe()">
+                미리 보기
+            </button>
+        </div>
+        <div class="col-50">
+            <button class="button button-block button-assertive" ng-click="submitRecipe()">
+                작성 완료
+            </button>
+        </div>
+    </div>
+
+
 
     <!--<button ng-click="shownewRecipe()"></button>-->
 </div>
