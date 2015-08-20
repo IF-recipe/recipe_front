@@ -13,10 +13,9 @@ angular.module('recipe.controllers')
         '$scope',
         '$ionicScrollDelegate',
         '$ionicLoading',
-        '$cordovaFile',
         '$cameraService',
         '$cordovaFileTransfer',
-        function($scope, $ionicScrollDelegate, $ionicLoading, $cordovaFile, $cameraService, $cordovaFileTransfer) {
+        function($scope, $ionicScrollDelegate, $ionicLoading, $cameraService, $cordovaFileTransfer) {
 
 
             $scope.foodkinds=["한식","중식","양식","일식"];
@@ -61,10 +60,10 @@ angular.module('recipe.controllers')
             $scope.getPhoto = function(step,sourceType) {
                 var options={
                     quality: 80,
-                    destinationType: Camera.DestinationType.NATIVE_URI,
+                    destinationType: Camera.DestinationType.FILE_URI,
                     sourceType: undefined,
                     allowEdit: false,
-                    encodingType: Camera.EncodingType.PNG,
+                    encodingType: Camera.EncodingType.JPEG,
                     targetWidth: 600,
                     targetHeight: 600,
                     popoverOptions: CameraPopoverOptions,
@@ -76,7 +75,8 @@ angular.module('recipe.controllers')
                     options.sourceType=Camera.PictureSourceType.CAMERA;
                 }else{
                     console.log("getting album");
-                    options.sourceType=Camera.PictureSourceType.SAVEDPHOTOALBUM;
+                    options.sourceType=Camera.PictureSourceType.PHOTOLIBRARY;
+                    //options.sourceType=Camera.PictureSourceType.SAVEDPHOTOALBUM;
                 }
                 $cameraService.getPicture(options).then(function (imageURI) {
                     alert(imageURI);
@@ -118,6 +118,8 @@ angular.module('recipe.controllers')
              * 레시피 미리보기
              */
             $scope.previewRecipe=function(){
+                var f = new FileTransfer();
+
                 alert("미리보기");
             }
 
@@ -127,8 +129,12 @@ angular.module('recipe.controllers')
              * 레시피 작성완료
              * postData go ! --- RESTful : Insert Recipe
              */
+
+            //document.addEventListener('deviceready', function () {
+            //
+            //}, false);
             $scope.submitRecipe=function(){
-                alert($scope.newRecipe);
+                //alert($scope.newRecipe);
                 $scope.newRecipe.writer="userName";
 
                 Date.prototype.yyyymmdd = function() {
@@ -139,29 +145,33 @@ angular.module('recipe.controllers')
                 };
 
                 var date = new Date();
+                alert($scope.newRecipe.steps[0].photoPath);
                 $scope.newRecipe.registrationdate = date.yyyymmdd();
 
                 /**
                  * new Recipe Object = image file - Upload
                  */
-                var url = "http://your_ip_address/uploads/upload.php";
+                var url = "http://14.63.171.30:3000/rest/photo/recipe/upload";
                 //target path may be local or url
-                var targetPath = "http://your_ip_address/images/my.jpg";
+                var targetPath = $scope.newRecipe.steps[0].photoPath;
                 var filename = targetPath.split("/").pop();
                 var options = {
                     fileKey: "file",
                     fileName: filename,
                     chunkedMode: false,
-                    mimeType: "image/jpg"
+                    mimeType: "image/jpg",
+                    description : "uplpad from my phone"
                 };
+
                 $cordovaFileTransfer.upload(url, targetPath, options).then(function(result) {
-                    console.log("SUCCESS: " + JSON.stringify(result.response));
-                    alert("success");
-                    alert(JSON.stringify(result.response));
+                    alert("SUCCESS: " + JSON.stringify(result.response));
+                    //alert("success");
+                    //alert(JSON.stringify(result.response));
                 }, function(err) {
-                    console.log("ERROR: " + JSON.stringify(err));
-                    alert(JSON.stringify(err));
+                    alert("ERROR: " + JSON.stringify(err));
+                    //alert(JSON.stringify(err));
                 }, function (progress) {
+                    alert("progress");
                     // constant progress updates
                     $timeout(function () {
                         $scope.downloadProgress = (progress.loaded / progress.total) * 100;
