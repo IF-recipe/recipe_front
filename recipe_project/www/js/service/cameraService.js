@@ -1,5 +1,5 @@
 angular.module('recipe.services')
-    .factory('cameraService', ['$q', function($q) {
+    .factory('$cameraService', ['$q', function($q) {
     return {
         getPicture: function(options) {
             var q = $q.defer();

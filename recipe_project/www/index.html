@@ -13,6 +13,8 @@
 
     <!------ external css --->
     <link href="external_lib/floatingbtn/mfb.css" rel="stylesheet"/>
+    <link href="external_lib/ngDialog/ngDialog.css" rel="stylesheet"/>
+    <link href="external_lib/ngDialog/ngDialog-theme-default.css" rel="stylesheet"/>
 
     <!------ custom css ----->
     <link href="css/style.css" rel="stylesheet">
@@ -63,7 +65,7 @@
     <!-- Left menu -->
     <ion-side-menu width="230" side="left">
         <ion-header-bar class="bar-assertive">
-            <h1 menu-toggle class="title" ng-click="titleClick()">홈으로</h1>
+            <h1 menu-close class="title" ng-click="titleClick()">홈으로</h1>
         </ion-header-bar>
         <ion-content scroll="false">
             <ion-list>
@@ -79,7 +81,7 @@
                     <ion-item href="#">
                         <h3>쉐프의 레시피</h3>
                     </ion-item>
-                    <ion-item menu-toggle href="#/addrecipe">
+                    <ion-item menu-close href="#/addrecipe">
                         <h3>글쓰기</h3>
                     </ion-item>
                 </div>
@@ -89,10 +91,10 @@
                         <ion-item href="#" class="item item-icon-right">
                             <h3>나의 레시피 북</h3>
                         </ion-item>
-                        <ion-item menu-toggle href="#/myprofile">
+                        <ion-item menu-close href="#/myprofile">
                             <h3>나의 프로필</h3>
                         </ion-item>
-                        <ion-item menu-toggle href="#/orderlist">
+                        <ion-item menu-close href="#/orderlist">
                             <h3>나의 주문내역</h3>
                         </ion-item>
                     </div>
@@ -101,7 +103,7 @@
 
         <ion-footer-bar class="bar-stable">
             <h1 class="title">낭낭맘</h1>
-            <button menu-toggle class="button pull-right" ng-click= "loginbtnClick()" >{{sign.sign_title}}</button>
+            <button class="button pull-right" ng-click= "loginbtnClick()" >{{sign.sign_title}}</button>
         </ion-footer-bar>
     </ion-side-menu>
 
@@ -130,18 +132,16 @@
 <script src="js/service/signService.js"></script>
 <script src="js/service/profileService.js"></script>
 <script src="js/service/cameraService.js"></script>
-<script src="js/service/pathService.js"></script>
 
 <!--------------------------------directive--------------------------------->
 <script src="js/directive/addressDirective.js"></script>
 <script src="js/directive/repeatpasswordDirective.js"></script>
 
+
 <!--------------------------------external js---------------------------------->
 
 <script src="external_lib/floatingbtn/mfb-directive.js"></script>
-<script src="external_lib/ngStorage/ngStorage.min.js"></script>
-<script src="external_lib/angularJwt/angular-jwt.js"></script>
-
+<script src="external_lib/ngDialog/ngDialog.js"></script>
 
 
 </body>
