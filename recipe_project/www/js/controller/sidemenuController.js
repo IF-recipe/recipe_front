@@ -5,8 +5,8 @@ angular.module('recipe.controllers')
         '$location',
         '$signService',
         '$ionicModal',
-        function($scope, $ionicSideMenuDelegate, $location,$signService,$ionicModal) {
-
+        '$localStorage',
+        function($scope, $ionicSideMenuDelegate, $location,$signService,$ionicModal,$localStorage) {
 
             /**
              *
@@ -26,7 +26,7 @@ angular.module('recipe.controllers')
 
             $scope.sign = {
                 sign_title : '',
-                sign_status : $signService.getsignStatus()
+                sign_status : $localStorage.current_sign
             };
 
             if($scope.sign.sign_status === false){
@@ -45,31 +45,42 @@ angular.module('recipe.controllers')
 
             $scope.loginbtnClick = function(){
 
-                if($scope.sign.sign_status == false){
+                if($localStorage.current_sign == false){
                     /**
                      * show modal for signup / signin
                      */
                     $scope.signmodal.show();
 
                 }else{
+                    $localStorage.current_sign = false;
+                    $localStorage.user_email = '';
+                    $localStorage.user_token = '';
 
-                    $signService.setsignStatus(false);
                     /**
                      * just change sign status
                      */
-                    $scope.sign.sign_status = $signService.getsignStatus();
+
+                    $location.path('/');
+                    console.log('로그아웃!');
+                    $scope.sign.sign_status = $localStorage.current_sign;
                     $scope.sign.sign_title = 'signIn';
                 }
             };
 
             $scope.$on('signstatusChange', function(){
-                $scope.sign.sign_status = $signService.getsignStatus();
-                $scope.sign.sign_title = 'signOut';
+
+                if($localStorage.current_sign == false){
+                    $scope.sign.sign_title = 'signIn';
+                }else{
+                    $scope.sign.sign_title = 'signOut';
+                }
             });
 
             $scope.$on('closeModal', function(event,data){
                 $scope.signmodal.hide();
-            })
-
+            });
+            $scope.$on('opensignModal', function(event,data){
+                $scope.signmodal.show();
+            });
 
         }]);

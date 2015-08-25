@@ -11,56 +11,150 @@ angular.module('recipe', [
     'recipe.services',
     'recipe.directives',
     'ng-mfb',
-    'ngCordova'
+    'ngCordova',
+    'ngStorage',
+    'angular-jwt'
 ])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
+    .run(['$ionicPlatform',
 
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleLightContent();
-    }
-  });
-})
+        '$localStorage',
+        '$rootScope',
+        '$location',
+        '$pathService',
+        function ($ionicPlatform, $localStorage, $rootScope, $location,$pathService) {
+            var auto_sign_storage = $localStorage.auto_sign_data;
+            if (auto_sign_storage === undefined) {
+
+                $localStorage = $localStorage.$default({
+                    auto_sign_status: false,
+                    user_token: '',
+                    user_email: '',
+                    current_sign: false
+                });
+            } else {
+
+                console.log('yes');
+            }
+
+            $rootScope.$on("$locationChangeStart", function (event, next, current) {
+
+                var s_status = $localStorage.current_sign;
+                var currentUrl = $location.path();
+                $pathService.setnextPath(next);
+                $pathService.setpreviousPath(currentUrl);
+
+                if (s_status == true) {
+                    /**
+                     * 로그인 되어있는 상태 바로 이동
+                     */
+                    $location.path(currentUrl);
+                } else {
+                    /**
+                     * 로그인이 안되어있는 상태
+                     */
+                    if (currentUrl == '/' || currentUrl == '' ||  currentUrl == '/searchrecipe') {
+                        /**
+                         * 로그인 없이사용할 수 있는 서비스
+                         */
+                        $location.path(currentUrl);
+                    }else{
+                        /**
+                         * 로그인 없이 불가능한 서비스
+                         */
+                        event.preventDefault();
+                        $rootScope.$broadcast('opensignModal');
+                    }
+                }
+            });
+
+            $ionicPlatform.ready(function () {
+                // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+                // for form inputs)
+                if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+                    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+                    cordova.plugins.Keyboard.disableScroll(true);
+                }
+                if (window.StatusBar) {
+                    // org.apache.cordova.statusbar required
+                    StatusBar.styleLightContent();
+                }
+            });
 
 
-.config(function($stateProvider, $urlRouterProvider) {
+        }])
+
+
+    .config(function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider, $httpProvider, $provide) {
+
+
+
+
+        jwtInterceptorProvider.tokenGetter = ['$localStorage', function ($localStorage) {
+            return $localStorage.user_token;
+        }];
+
+        $httpProvider.interceptors.push('jwtInterceptor');
+
+        $httpProvider.interceptors.push(['$q','$window','$localStorage','$rootScope', function($q, $window, $localStorage,$rootScope) {
+
+            return {
+                'response': function (response) {
+                    //Will only be called for HTTP up to 300
+                    return response;
+                },
+                'responseError': function (rejection) {
+                    if(rejection.status === 401) {
+                        console.log('401 error ');
+                        /*location.reload();*/
+                        $localStorage.current_sign = false;
+                        $rootScope.$broadcast('signstatusChange');
+
+                    }
+                    return $q.reject(rejection);
+                }
+            };
+
+        }]);
+
+
         $stateProvider
             .state('recipeall', {
                 url: "/",
                 templateUrl: "template/recipeallTemplate.html",
-                controller:"recipeallCtrl"
+                controller: "recipeallCtrl"
             })
             /*.state('showrecipe', {
-                url: "/showrecipe",
-                templateUrl: "template/showrecipeTemplate.html"
-            })*/
+             url: "/showrecipe",
+             templateUrl: "template/showrecipeTemplate.html"
+             })*/
             .state('myprofile', {
                 url: "/myprofile",
                 templateUrl: "template/profileTemplate.html",
-                controller : 'profileCtrl'
+                controller: 'profileCtrl',
+                resolve: {
+
+                    profile_data: function ($profileService) {
+                        return $profileService.profileRequest().then(function (data) {
+                            return data;
+                        })
+                    }
+                }
             })
             .state('deliverybook', {
                 url: "/deliverybook",
                 templateUrl: "template/deliverybookTemplate.html",
-                controller : 'deliverybookCtrl'
+                controller: 'deliverybookCtrl'
             })
             .state('orderlist', {
                 url: "/orderlist",
                 templateUrl: "template/orderlistTemplate.html",
-                controller : 'orderlistCtrl'
+                controller: 'orderlistCtrl'
             })
             .state('orderdetail', {
                 url: "/orderdetail/:orderId",
                 templateUrl: "template/orderdetailTemplate.html",
-                controller : 'orderdetailCtrl'
+                controller: 'orderdetailCtrl'
             })
             .state('searchrecipe', {
                 url: "/searchrecipe",
@@ -73,7 +167,7 @@ angular.module('recipe', [
             .state('addrecipe', {
                 url: "/addrecipe",
                 templateUrl: "template/addrecipeTemplate.html",
-                controller : 'addrecipeCtrl'
+                controller: 'addrecipeCtrl'
             })
             .state('previewrecipe', {
                 url: "/previewrecipe",
@@ -82,13 +176,7 @@ angular.module('recipe', [
 
         $urlRouterProvider.otherwise("/");
 
-        /*$sceDelegateProvider.resourceUrlWhitelist([
-            // Allow same origin resource loads.
-            'self',
-            // Allow loading from our assets domain.  Notice the difference between * and **.
-            'http://postcode.map.daum.net/!**'
-        ]);*/
-});
+    });
 
 angular.module('recipe.controllers', []);
 

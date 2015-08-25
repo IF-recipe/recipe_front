@@ -21,20 +21,17 @@ angular.module('recipe.controllers')
             var temp = {};
             temp.representation = true;
             temp.address_title = '유자성집';
-            temp.zip_code = '378-141';
-            temp.jibun_address = '충남아산시 신창면 읍내리 순천향대학교';
-            temp.detail_address = ' 앙뜨레 쁘레너관 E307';
+            temp.post_code = '378-141';
+            temp.detail_address = '충남아산시 신창면 읍내리 순천향대학교 앙뜨레 쁘레너관 E307';
             temp.phone = '010-4230-0986';
             $scope.delivery_book.push(temp);
             var temp1 = {};
             temp1.address_title = '유자성집2';
             temp1.representation = false;
-            temp1.zip_code = '378-111';
-            temp1.jibun_address = '충남아산시 신창면 읍내리 ';
-            temp1.detail_address = '경희아파트 109-909호';
+            temp1.post_code = '378-111';
+            temp1.detail_address = ' 충남아산시 신창면 읍내리 경희아파트 109-909호';
             temp1.phone = '010-4230-0000';
             $scope.delivery_book.push(temp1);
-
 
             /**
              * $scope.delivery_book = $profileService.getdeliveryOnly
@@ -46,12 +43,8 @@ angular.module('recipe.controllers')
 
                 $ionicScrollDelegate.scrollBottom(true);
 
-
-
                 $scope.addbtn_status = true;
                 $scope.delivery_input_forms.push(createaddressInput());
-
-
 
             };
 
@@ -71,7 +64,6 @@ angular.module('recipe.controllers')
 
             };
             $scope.$on('addcompleteFunc', function(event,data){
-
 
                 /**
                  *
@@ -115,8 +107,7 @@ angular.module('recipe.controllers')
 
             $scope.address_find_values = {
                 post_code : '',
-                road_address : '',
-                jibun_address : ''
+                detail_address : ''
             };
 
             $scope.$on('addressFind', function(event, data){

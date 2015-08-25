@@ -3,21 +3,13 @@
     <input type="text" ng-model="sending_address.address_title" placeholder="배송지 명을 입력해주세요!">
 </label>
 
-
-<div id="postcodify">
-
-</div>
-
 <label class="item item-input" style="padding-top:10px;">
     <input style="display:inline;float:left;" size="6" id="post_code" type="text" placeholder="우편번호"
-           ng-model='sending_address.post_code' value='sending_address.post_code' disabled/>
-
-
-<textarea placeholder="지번주소" id="jibun_address" ng-model='sending_address.jibun_address'
-          value='sending_address.jibun_address' style="width:100%;"></textarea>
+           ng-model='sending_address.post_code' value='sending_address.post_code'/>
 </label>
+
 <label class="item item-input" style="padding-top:10px;">
-<textarea type="text" placeholder="상세주소입력" ng-model='sending_address.detail_address'
+<textarea type="text" placeholder="주소입력 - 충청남도 아산시 신창면" ng-model='sending_address.detail_address'
           value='sending_address.detail_address' style="width:100%;"></textarea>
 </label>
 

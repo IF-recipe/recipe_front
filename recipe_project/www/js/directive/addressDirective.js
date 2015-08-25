@@ -20,41 +20,15 @@ angular.module('recipe.directives', [])
             },
             controller: function ($scope, $element) {
 
-                (function post() {
-                    $("#postcodify").postcodify({
-                        insertPostcode6: "#post_code",
-                        insertJibeonAddress: "#jibun_address",
-                        hideOldAddresses: false,
-                        afterSelect: function () {
-                            $("#postcodify div.postcode_search_result").remove();
-                            $("#postcodify div.postcode_search_status.summary").hide();
-                            $("#postcodify div.too_many").hide();
-                        }
-
-                    });
-                }());
-
-                var inputBox = angular.element('.keyword');
-                inputBox.attr('placeholder', '도로명+건물번호 또는 동/리+번지로 입력해주세요');
-                inputBox.attr('size', '40');
-                inputBox.addClass('item item-input');
-
-                var searchBtn = angular.element(".search_button");
-                searchBtn.css('margin-top','30px');
-                searchBtn.addClass(' button button-block button-positive ');
-
-
                 $scope.sending_address = {
+                    address_title : '',
                     post_code: '',
-                    detail_address: '',
-                    jibun_address: ''
+                    detail_address: ''
                 };
-
                 if ($scope.status === 'edit') {
 
-                    $scope.sending_address.post_code = $scope.delivery.zip_code;
+                    $scope.sending_address.post_code = $scope.delivery.post_code;
                     $scope.sending_address.detail_address = $scope.delivery.detail_address;
-                    $scope.sending_address.jibun_address = $scope.delivery.jibun_address;
                     $scope.sending_address.phone = $scope.delivery.phone;
                     $scope.sending_address.address_title = $scope.delivery.address_title;
                     $scope.btn_title = '수정하기';
@@ -67,11 +41,9 @@ angular.module('recipe.directives', [])
 
                 $scope.confirmClick = function () {
                     if ($scope.status === 'add') {
-
                         $scope.$emit('addcompleteFunc', {address: $scope.sending_address, index: $scope.index});
                     } else {
 
-                        console.log($scope.sending_address);
                         $scope.$emit('editcompleteFunc', {address: $scope.sending_address, index: $scope.index});
                     }
                 };
@@ -80,7 +52,6 @@ angular.module('recipe.directives', [])
                     if ($scope.status === 'add') {
                         $scope.$emit('addcloseFunc', $scope.index);
                     } else {
-                        console.log('close');
                         $scope.$emit('editcloseFunc', $scope.index);
                     }
                 };

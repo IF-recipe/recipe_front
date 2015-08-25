@@ -13,7 +13,7 @@
 
                 <div class="card">
                     <div class="item">
-                        <input type="email" name="signinid" placeholder="아이디" ng-model="signin_info.id" required/>
+                        <input type="email" name="signinid" placeholder="아이디" ng-model="signin_info.email" required/>
                         <h4 class="help-error" data-ng-show="signinForm.signinid.$error.required" style="color:red;">이메일
                             입력해주세요.</h4>
 
@@ -39,6 +39,9 @@
 
                     </div>
 
+                </div>
+                <div ng-if="signin_check" style="text-align:center;">
+                    <h4 style="color:red;">아이디와 비밀번호를 확인해주세요</h4>
                 </div>
 
                 <button ng-click="signin()" class="button button-block button-assertive"
@@ -70,14 +73,14 @@
 
                 <div class="card">
                     <div class="item">
-                        <input type="email" placeholder="아이디(이메일)" ng-model="signup_info.id" required/>
-                        <!--
-                            <h4 style="color:red;">이미 등록된 이메일 입니다.</h4>
-                            후에 validation check 를 통해서 여기다가 값을 너어줘야함-->
+                        <input type="email" placeholder="아이디(이메일)" id="idinput" ng-model="signup_info.email" ng-blur="signupemailCheck();" required/>
+                            <h4 style="color:red;" ng-if="checkemail == 'duplicate'">이미 등록된 이메일 입니다.</h4>
+                        <h4 style="color:blue;" ng-if="checkemail == 'available'">사용 가능합니다.</h4>
+
 
                     </div>
                     <div class="item">
-                        <input type="text" placeholder="닉네임" ng-model="signup_info.nickname" ng-minlength="4"
+                        <input type="text" placeholder="이름" ng-model="signup_info.name" ng-minlength="3"
                                ng-maxlength="20" required/>
                     </div>
                     <div class="item">
