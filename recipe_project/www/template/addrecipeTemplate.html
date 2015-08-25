@@ -16,20 +16,21 @@
             <input type="text" placeholder="요리 재료" ng-model="newRecipe.materials">
         </label>
 
-        <div class="row">
-            <div class="col-50">
+        <div class="row" style="height: 76px;">
+            <div class="col-66">
                 <label class="item-input item-floating-label">
                     <span class="input-label" style="color:#e47865;">해시태그</span>
                     <input type="text" placeholder="태그 입력" ng-keydown="addTag($event)" ng-model="inputTag">
                 </label>
             </div>
-            <div class="col-50">
-                <button class="button button-small button-clear button-stable"
+            <ion-scroll class="col-33" direction="y" delegate-handle="tagHandler" >
+                <button style="display: block;"
+                        class="button button-small button-clear button-stable"
                         ng-repeat="btn in newRecipe.hashtag"
                         ng-click="removeTag($index)">
-                    #{{btn.name}}
+                    {{$index+1}}. #{{btn.name}}
                 </button>
-            </div>
+            </ion-scroll>
         </div>
 
         <label class="item item-input item-select">
@@ -41,35 +42,81 @@
                     ng-options="foodkind for foodkind in foodkinds"></select>
         </label>
     </div>
-
+    <!--<img ng-src="http://14.63.169.140:3500/rest/photo/recipe/download" style="width:200px;height:200px"/>-->
     <ion-list>
         <ion-item ng-repeat="step in newRecipe.steps">
-            <div class="item item-avatar item-icon-left assertive" href="#">
-                <i class="icon ion-music-note"></i>
-                <h2 class="assertive">
+
+            <div class="item item-divider">
+                <a href="#" class="item-icon-right assertive" ng-show="$index!==0">
+                    <i class="icon ion-ios-close-outline assertive" ng-click="removeStep($index)"></i>
+                </a>
+            </div>
+
+            <div class="item item-avatar item-icon-left assertive">
+                <i class="icon ion-android-create"></i>
+                <h2 class="assertive" style="display:inline;">
                     Step.{{step.step}}
                 </h2>
+
                 <p style="text-decoration:none">{{newRecipe.title}}</p>
             </div>
+
             <div class="item item-body">
                 <a ng-show="step.photoPath === undefined" class="button button-icon icon-right ion-camera"
-                   ng-click="getPhoto(step,0)"> 카메라 </a>
+                   ng-click="getPhoto(step,1)"> 카메라 </a>
 
                 <a ng-show="step.photoPath === undefined" class="button button-icon icon-right ion-image"
-                   ng-click="getPhoto(step,1)"> 앨범 </a>
+                   ng-click="getPhoto(step,0)"> 앨범 </a>
 
                 <img ng-show="step.photoPath !== undefined" ng-src="{{step.photoPath}}" style="width:100%;" ng-click="getPhoto(step)">
-
+                {{step.photoPath}}
                 <label class="item item-input" style="border:1px;">
-                    <textarea placeholder="내용을 입력해주세요." rows="4" cols="14" ng-model="step.content" style="border:2px">
+                    <textarea placeholder="Step{{step.step}} 에 대한 내용을 입력해주세요." rows="4" cols="14" ng-model="step.content" style="border:2px">
+                </textarea>
+                </label>
+            </div>
+            <button class="button button-block button-assertive icon ion-ios-plus-outline"
+                    ng-click="addStep()"
+                    ng-show="newRecipe.steps.length===($index+1)">
+            </button>
+            <button class="button button-block button-assertive"
+                    ng-click="addcompletePhoto()"
+                    ng-show="newRecipe.steps.length===($index+1)&&addCompPhoto">
+                완성사진 추가하기
+            </button>
+        </ion-item>
+
+
+        <ion-item ng-show="!addCompPhoto">
+            <div class="item item-divider assertive">
+                완성사진 추가하기
+            </div>
+
+            <!--<div class="item item-avatar item-icon-left assertive">-->
+                <!--<i class="icon ion-android-create"></i>-->
+                <!--<h2 class="assertive" style="display:inline;">-->
+                    <!--Step.{{step.step}}-->
+                <!--</h2>-->
+                <!--<p style="text-decoration:none">{{newRecipe.title}}</p>-->
+            <!--</div>-->
+
+            <div class="item item-body">
+                <a ng-show="step.photoPath === undefined" class="button button-icon icon-right ion-camera"
+                   ng-click="getPhoto(step,1)"> 카메라 </a>
+
+                <a ng-show="step.photoPath === undefined" class="button button-icon icon-right ion-image"
+                   ng-click="getPhoto(step,0)"> 앨범 </a>
+
+                <img ng-show="step.photoPath !== undefined" ng-src="{{step.photoPath}}" style="width:100%;" ng-click="getPhoto(step)">
+                {{step.photoPath}}
+                <label class="item item-input" style="border:1px;">
+                    <textarea placeholder="Step{{step.step}} 에 대한 내용을 입력해주세요." rows="4" cols="14" ng-model="step.content" style="border:2px">
                 </textarea>
                 </label>
             </div>
         </ion-item>
     </ion-list>
-    <button class="button button-block button-assertive icon ion-ios-plus-outline"
-            ng-click="addinputForm()">
-    </button>
+
     <div class="row">
         <div class="col-50">
             <button class="button button-block button-assertive" ng-click="previewRecipe()">
@@ -77,9 +124,9 @@
             </button>
         </div>
         <div class="col-50">
-            <inpt type="submit" class="button button-block button-assertive" ng-click="submitRecipe()">
+            <button class="button button-block button-assertive" ng-click="submitRecipe()">
                 작성 완료
-            </inpt>
+            </button>
         </div>
     </div>
     <!--<button ng-click="shownewRecipe()"></button>-->
