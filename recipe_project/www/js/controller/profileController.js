@@ -7,7 +7,10 @@ angular.module('recipe.controllers')
     .controller('profileCtrl',[
         '$scope',
         '$location',
-        function($scope, $location){
+        'profile_data',
+        function($scope, $location,profile_data){
+
+            console.log(profile_data);
 
             $scope.profile_info = {
                 email : '',
