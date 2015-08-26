@@ -174,7 +174,7 @@ angular.module('recipe.controllers')
 
             $scope.submitRecipe=function(){
 
-                if($scope.validateRecipe()) return;
+                //if($scope.validateRecipe()) return;
                 addmemberInfo();
                 /**
                  * new Recipe Object = image file - Upload
