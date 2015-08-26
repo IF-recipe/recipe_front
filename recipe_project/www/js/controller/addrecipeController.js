@@ -179,8 +179,10 @@ angular.module('recipe.controllers')
                 /**
                  * new Recipe Object = image file - Upload
                  */
-                for( step in $scope.newRecipe.steps){
-
+                console.log($scope.newRecipe.steps.length);
+                for( var i = 0 ; i < $scope.newRecipe.steps.length ; i++){
+                    alert("index : "+i+"-----upload");
+                    console.log(i+": "+$scope.newRecipe.steps[i].photoPath);
                     var options = {
                         fileKey : "files",
                         fileName :"image.png",
@@ -189,10 +191,10 @@ angular.module('recipe.controllers')
                         params : {
                             writer : "writer",
                             msg : "씨발 이제 되냐?",
-                            step : step //index
+                            step : i //index
                         }
                     };
-                    $photouploadService.upload(options,step.photoPath);
+                    $photouploadService.upload(options, $scope.newRecipe.steps[i].photoPath);
                 }
             }
 
@@ -213,18 +215,16 @@ angular.module('recipe.controllers')
                     alert("태그를 입력해주세요.");
                 }
 
-                for( step in $scope.newRecipe.steps){
-                    if(step.content ===undefined){
+                for( var i = 0 ; i < $scope.newRecipe.steps.length ; i++){
+                    if($scope.newRecipe.steps[i].content ===undefined){
                         alert("Step." + (Number(step)+1)+ "에 해당하는 내용을 입력해주세요.");
                         return true;
                     }
-                    if(step.photoPath===undefined){
+                    if($scope.newRecipe.steps[i].photoPath===undefined){
                         alert("Step." + (Number(step)+1) + "에 해당하는 사진을 선택해주세요.");
                         return true;
                     }
                 }
-
                 return false;
-
             }
         }]);

@@ -5,7 +5,7 @@ angular.module('recipe.services')
     .factory('$photouploadService', [
         '$cordovaFileTransfer',
         function ($cordovaFileTransfer) {
-            var url = "http://14.63.169.140:3000/rest/photo/recipe/upload";
+            var url = "http://14.63.169.140:3500/rest/photo/recipe/upload";
             var photoUpload = {};
             var options= undefined;
 
