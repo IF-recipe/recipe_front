@@ -16,11 +16,11 @@ angular.module('recipe.services')
                     return;
                 }
                 $cordovaFileTransfer.upload(url, photoPath, options).then(function(result){
-                    alert("success");
-                    alert(result);
+                    //alert("success");
+                    //alert(result);
                 },function(err){
-                    alert("err");
-                    alert(err);
+                    //alert("err");
+                    //alert(err);
                 });
             }
             return photoUpload;

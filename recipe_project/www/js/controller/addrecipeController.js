@@ -15,9 +15,9 @@ angular.module('recipe.controllers')
         '$ionicLoading',
         '$cameraService',
         '$photouploadService',
-        function($scope, $ionicScrollDelegate, $ionicLoading, $cameraService, $photouploadService) {
-
-            $scope.imageURI =undefined;
+        '$http',
+        '$cordovaFile',
+        function($scope, $ionicScrollDelegate, $ionicLoading, $cameraService, $photouploadService, $http, $cordovaFile) {
 
             $scope.foodkinds=["한식","중식","양식","일식"];
             $scope.newRecipe={};
@@ -31,20 +31,38 @@ angular.module('recipe.controllers')
             $scope.inputTag=undefined;
             $scope.addCompPhoto = true;
 
+            $scope.newRecipe.compleStep = {
+                photoPath : undefined,
+                content : undefined,
+                step : 0
+            };
+
             $scope.addTag = function(event){
                 if( $scope.inputTag === "" || $scope.inputTag === undefined) return;
-                if(event.keyCode ===13){
+
+                if(event.keyCode ===13 || event.keyCode == 32){
+
                     if($scope.newRecipe.hashtag.length==5){
                         $ionicLoading.show({
                             template: '<i class="ion-ios-close-outline"></i> 해시태그는 5개까지 가능합니다.'
                             , noBackdrop: true
                             , duration: 2000 });
                         return;
+                    }else{
+                        for(var i in $scope.newRecipe.hashtag){
+                            if($scope.inputTag === $scope.newRecipe.hashtag[i].name) {
+                                $scope.inputTag = undefined;
+                                $ionicLoading.show({
+                                    template: '<i class="ion-ios-close-outline"></i> 이미 존재하는 태그입니다.'
+                                    , noBackdrop: true
+                                    , duration: 2000 });
+                                return;
+                            }
+                        }
                     }
                     $scope.newRecipe.hashtag.push({
-                        name : $scope.inputTag
+                        name : $scope.inputTag.replace(" ","")
                     });
-                    $ionicScrollDelegate.$getByHandle('tagHandler').scrollBottom();
                     $scope.inputTag=undefined;
                 }
             }
@@ -61,12 +79,12 @@ angular.module('recipe.controllers')
             $scope.getPhoto = function(step, sourceType) {
                 var options={
                     quality: 75,
-                    destinationType: Camera.DestinationType.FILE_URI,
+                    destinationType: Camera.DestinationType.NATIVE_URI,
                     sourceType : undefined,
                     allowEdit: false,
                     encodingType: Camera.EncodingType.JPEG,
-                    targetWidth: 500,
-                    targetHeight: 500,
+                    targetWidth: 350,
+                    targetHeight: 350,
                     popoverOptions: CameraPopoverOptions,
                     saveToPhotoAlbum: false
                     //,mediaType : Camera.MediaType.PICTURE
@@ -75,27 +93,37 @@ angular.module('recipe.controllers')
 
                 if(sourceType === 1){
                     options.sourceType = Camera.PictureSourceType.CAMERA;
-                    //dataurlOptions.sourceType = Camera.PictureSourceType.CAMERA;
                 }else{
                     options.sourceType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
-                    //dataurlOptions.sourceType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
                 }
 
                 $cameraService.getPicture(options).then(function (imageURI) {
                     alert(imageURI);
                     // 사진 경로 조정
-                    //var photoPath = imageURI.split("?");
-                    //imageURI = photoPath[0].replace("modified",photoPath[1]);
-                    //alert(imageURI);
-                    //$scope.imageURI = imageURI;
+                    var photoPath = imageURI.split("?");
+                    var originfileName = photoPath[0].substring(photoPath[0].lastIndexOf('/')+1);
+                    var newfileName = step.step+".jpg";
 
+                    alert(originfileName);
+                    alert(dir);
+                    alert(newfileName);
+
+                    alert(cordova.file.externalCacheDirectory);
                     step.photoPath = imageURI;
-                    // base 64 coding
-                    //$cameraService.getPicture(dataurlOptions).then(function (imageURI) {
-                    //    step.photoToBase64 = "data:image/jpeg;base64,"+imageURI;
-                    //}, function (err) {
-                    //    alert(err);
-                    //});
+                    if(ionic.Platform.isAndroid()){
+                        $cordovaFile.copyFile(cordova.file.externalCacheDirectory, originfileName, cordova.file.externalCacheDirectory, newfileName)
+                            .then(function (success) {
+                                // success
+                                alert("success");
+                                step.photoPath = cordova.file.externalCacheDirectory + newfileName;
+                            }, function (error) {
+                                alert("err");
+                            });
+                    }else{
+                        if(ionic.Platform.isIOS()){
+                            alert("IOS")
+                        }
+                    }
                 }, function (err) {
                     alert(err);
                 });
@@ -118,7 +146,8 @@ angular.module('recipe.controllers')
                         content:undefined,
                         photoPath:undefined
                     });
-                    $ionicScrollDelegate.scrollBottom(true);
+
+                    //$ionicScrollDelegate.scrollBottom(true);
                 }
             };
             /**
@@ -144,7 +173,6 @@ angular.module('recipe.controllers')
              * 레시피 미리보기
              */
             $scope.previewRecipe=function(){
-
                 alert("미리보기");
             }
 
@@ -173,42 +201,22 @@ angular.module('recipe.controllers')
              */
 
             $scope.submitRecipe=function(){
-
-                //if($scope.validateRecipe()) return;
-                addmemberInfo();
-                /**
-                 * new Recipe Object = image file - Upload
-                 */
-                console.log($scope.newRecipe.steps.length);
-                for( var i = 0 ; i < $scope.newRecipe.steps.length ; i++){
-                    alert("index : "+i+"-----upload");
-                    console.log(i+": "+$scope.newRecipe.steps[i].photoPath);
-                    var options = {
-                        fileKey : "files",
-                        fileName :"image.png",
-                        chunkedMode : false,
-                        mimeType : "image/jpeg",
-                        params : {
-                            writer : "writer",
-                            msg : "씨발 이제 되냐?",
-                            step : i //index
-                        }
-                    };
-                    $photouploadService.upload(options, $scope.newRecipe.steps[i].photoPath);
-                }
+                $scope.recipeId=undefined;
+                if($scope.validateRecipe()) return;
+                sendnewRecipe($scope.newRecipe);
             }
 
             /**
              * Recipe Validation Check
              */
-            $scope.validateRecipe = function(){
-                if($scope.newRecipe.title===undefined){
+            validateRecipe = function(){
+                if($scope.newRecipe.title===undefined || $scope.newRecipe.title==""){
                     alert("제목을 입력해주세요.");
                 }
-                if($scope.newRecipe.description===undefined){
+                if($scope.newRecipe.description===undefined || $scope.newRecipe.description==""){
                     alert("간단 설명을 입력해주세요.");
                 }
-                if($scope.newRecipe.materials===undefined){
+                if($scope.newRecipe.stuffs===undefined || $scope.newRecipe.stuffs==""){
                     alert("요리 재료 설명을 입력해주세요.");
                 }
                 if($scope.newRecipe.hashtag.length===0){
@@ -226,5 +234,38 @@ angular.module('recipe.controllers')
                     }
                 }
                 return false;
+            }
+            /**
+             * $http
+             */
+            sendnewRecipe = function(recipe){
+                alert("sendnewRecipe ---- 글데이터 : "+ $scope.newRecipe.steps.length);
+                var url = "http://14.63.169.140:3500/rest/recipe/add";
+                //var url = "http://localhost:3500/rest/recipe/add";
+                //alert(url);
+                recipe.steps.splice(0,0, $scope.newRecipe.compleStep);
+                $http.post(url, recipe).then(function(res){;
+                    console.log(res.data);
+                    /**
+                     * send step photo Path -- file upload
+                     * res.data
+                     *  --> 등록 recipe의 Mongo _id값을 가지고 있음.
+                     */
+                    for( var i = 0 ; i < $scope.newRecipe.steps.length ; i++){
+                        var options = {
+                            fileKey : "files",
+                            fileName :"image.png",
+                            chunkedMode : false,
+                            mimeType : "image/jpeg",
+                            params : {
+                                recipeId : res.data._id,
+                                stepId : res.data.steps[i]._id
+                            }
+                        };
+                        $photouploadService.upload(options, $scope.newRecipe.steps[i].photoPath);
+                    }
+                }).then(function(){
+                    recipe.steps.splice(0,1);
+                });
             }
         }]);
